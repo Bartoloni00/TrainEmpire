@@ -1,0 +1,80 @@
+nav button{
+    border: none;
+    background: #f8f9fa;
+}
+.msg-error,.msg-exito{
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 25px;
+    margin: 2px 20px;
+}
+.msg-error{
+  background: #99010066;
+}
+.msg-exito{
+  background: #00990166;
+}
+form .msg-error{
+  font-size: .7em;
+}
+.img-editar{
+  width: 100%;
+  clip-path: ellipse(70% 70% at 50% 50%);
+}
+.dashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.admin-article{
+    border: 5px solid #990100;
+    border-radius: 25px;
+    margin:2vh 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all .5s;
+}
+.admin-article>a{
+    border-radius: 25px;
+    text-align: center;
+    padding: 2em;
+    color: #000;
+    font-weight: bolder;
+    text-decoration: none;
+    transition: all 1.5s;
+}
+.admin-article:hover, .admin-article:hover a{
+    background-color: #990100;
+    color: #fff;
+}
+.admin-categorias{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.admin-categorias>section{
+    width: 50%;
+    margin: 0 5%;
+}
+.img-admin{
+  width: 150px;
+}
+.form-eliminar{
+  margin: 2vh auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 768px){
+  .esconder-tablet{
+    display: none;
+  }
+}
+@media only screen and (max-width: 480px){
+  .esconder-movile{
+    display: none;
+  }
+}

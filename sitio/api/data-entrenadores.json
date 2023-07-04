@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "nombre": "Lucas Beltran",
+        "descripcion": "Experto en entrenamiento de fuerza y acondicionamiento físico",
+        "imagen": "entrenador1.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Dafne Schippers",
+        "descripcion": "Especialista en entrenamiento de resistencia y nutrición deportiva",
+        "imagen": "entrenador2.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Simon Bines",
+        "descripcion": "Entrenador personalizado para lograr tus metas de fitness y bienestar",
+        "imagen": "entrenador3.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Heugh ming Son",
+        "descripcion": "Entrenador con experiencia en rehabilitación física y entrenamiento de alto rendimiento",
+        "imagen": "entrenador4.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Harry Kane",
+        "descripcion": "Especialista en entrenamiento funcional y entrenamiento en grupo",
+        "imagen": "entrenador5.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Lebrom James",
+        "descripcion": "Entrenador de yoga y meditación para mejorar tu salud y bienestar mental",
+        "imagen": "entrenador6.jpg"
+    }
+]
