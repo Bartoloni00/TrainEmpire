@@ -26,24 +26,24 @@
         <div class="info">
             <div class="tarjeta">
                 <h3>Organizado</h3>
-                <p>Somos un equipo de expertos altamente organizado para proporcionar el mejor servicio posible a nuestros clientes.</p>
+                <p>Somos <strong>un equipo de expertos altamente organizado para proporcionar el mejor servicio posible</strong> a nuestros clientes.</p>
             </div>
             <div class="tarjeta">
                 <h3>Atencion al detalle</h3>
                 <p>
-                Los entrenadores adaptan cuidadosamente a las necesidades individuales de cada cliente, considerando su nivel de condición física, objetivos, limitaciones físicas y preferencias de entrenamiento.
+               <strong> Los entrenadores adaptan cuidadosamente a las necesidades individuales de cada cliente</strong>, considerando su nivel de condición física, objetivos, limitaciones físicas y preferencias de entrenamiento.
                 </p>
             </div>
             <div class="tarjeta">
                 <h3>Experiencia</h3>
                 <p>
-                Cada uno de nuestros entrenadores tiene una formación especializada y años de experiencia en el campo del entrenamiento físico, lo que les permite adaptarse a las necesidades y objetivos de cada cliente de manera efectiva y eficiente.
+                Cada uno de nuestros entrenadores tiene una formación especializada y <strong>años de experiencia en el campo del entrenamiento físico</strong>, lo que les permite adaptarse a las necesidades y objetivos de cada cliente de manera efectiva y eficiente.
                 </p>
             </div>
             <div class="tarjeta">
                 <h3>Empático</h3>
                 <p>
-                Comprendemos que cada cliente tiene necesidades y objetivos únicos, y nos esforzamos por entender sus preocupaciones y desafíos personales para crear planes de entrenamiento personalizados que sean efectivos y sostenibles a largo plazo. 
+                Comprendemos que cada cliente tiene necesidades y objetivos únicos, y <strong>nos esforzamos por entender sus preocupaciones y desafíos personales para crear planes de entrenamiento personalizados que sean efectivos y sostenibles a largo plazo</strong>. 
                 </p>
             </div>
         </div>
@@ -97,7 +97,7 @@
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <p>
-              Los costos varian dependiendo de lo que incluye cada plan, ya que algunos ofrecen acceso a una biblioteca de videos de entrenamiento, seguimiento de progreso, asesoramiento nutricional u otros recursos útiles.
+             <em> Los costos varian dependiendo de lo que incluye cada plan</em>, ya que algunos ofrecen acceso a una biblioteca de videos de entrenamiento, seguimiento de progreso, asesoramiento nutricional u otros recursos útiles.
             </p>
             </div>
           </div>
@@ -111,7 +111,11 @@
           <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
             <p>
-            Los planes de entrenamiento se adaptan a tu nivel de experiencia y objetivos personales a través de un cuestionario inicial que proporcionas al momento de adquirir el servicio. A partir de tus respuestas, se determina tu nivel de condición física actual, tus objetivos personales, limitaciones físicas y otras necesidades individuales. Con esta información, se crea un plan de entrenamiento personalizado que se ajusta a tus necesidades específicas y se adapta a medida que avanzas en el entrenamiento.
+            Los planes de entrenamiento se adaptan a tu nivel de experiencia y objetivos personales a través de un 
+            cuestionario inicial que proporcionas al momento de adquirir el servicio. <em>A partir de tus respuestas, 
+            se determina tu nivel de condición física actual, tus objetivos personales, limitaciones físicas y otras 
+            necesidades individuales. Con esta información, se crea un plan de entrenamiento personalizado que se ajusta 
+            a tus necesidades específicas y se adapta a medida que avanzas en el entrenamiento</em>.
             </p>
             </div>
           </div>
@@ -125,7 +129,7 @@
           <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <p>
-                Si, Esto puede incluir la opción de hablar con un entrenador personal o recibir retroalimentación personalizada sobre tu progreso. Si estás interesado en obtener asesoramiento adicional, es importante que busques un servicio que lo ofrezca explícitamente.
+                Si, Esto puede incluir la opción de hablar con un entrenador personal o recibir retroalimentación personalizada sobre tu progreso. <strong> Si estás interesado en obtener asesoramiento adicional, es importante que busques un servicio que lo ofrezca explícitamente</strong>.
               </p>
             </div>
           </div>
@@ -139,7 +143,10 @@
           <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
             <div class="accordion-body">
               <p>
-                El tiempo que tardas en ver resultados con un plan de entrenamiento depende de tu nivel de condición física actual, tus objetivos personales, la intensidad y la frecuencia del entrenamiento y tu adherencia al plan. En general, es posible comenzar a ver algunos resultados en unas pocas semanas, aunque los resultados significativos pueden tomar varios meses.
+                El tiempo que tardas en ver resultados con un plan de entrenamiento <em>depende de tu nivel de condición 
+                física actual, tus objetivos personales, la intensidad y la frecuencia del entrenamiento y 
+                tu adherencia al plan.</em> En general, es posible comenzar a ver algunos resultados en unas pocas semanas, 
+                aunque los resultados significativos pueden tomar varios meses.
               </p>
             </div>
           </div>
@@ -152,7 +159,8 @@
           </h3>
           <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-            Sí, Las planificaciones de entrenamiento ofrecen garantías o políticas de devolución si no estás satisfecho con tu plan de entrenamiento.
+            Sí, <em>Las planificaciones de entrenamiento ofrecen garantías o políticas de devolución si no estás satisfecho 
+            con tu plan de entrenamiento.</em>
             </div>
           </div>
         </div>
