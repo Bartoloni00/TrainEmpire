@@ -1,22 +1,17 @@
 <?php 
- //require_once __DIR__ . '/../clases/Entrenadores.php';
  //$entrenadores = (new Entrenadores)->todos();
 
- //require_once __DIR__ . '/../clases/Categorias.php';
     $categorias = (new Categorias)->todos();
 
- //require_once __DIR__ . '/../clases/Rutinas.php';
  $rutinas = (new Rutinas)->todas();
 
     //$entrenador = isset($_GET['e']) ? $_GET['e'] : '';//entrenador
-    $categoria = isset($_GET['c']) ? $_GET['c'] : '';//categoria
+    $categoriaGet = $_GET['c']??'';//categoria
     $precio_min = isset($_GET['minp']) ? intval($_GET['minp']) : 0;//precio minimo
     $precio_max = isset($_GET['maxp']) ? intval($_GET['maxp']) : PHP_INT_MAX;//precio maximo
 
-
-    //require_once __DIR__ . '/../clases/Filtro.php';
     $filtro = new Filtro;
-    $rutinas = $filtro->filtradoPorCategoria($rutinas,$categoria);
+    $rutinas = $filtro->filtradoPorCategoria($rutinas,$categoriaGet);
     //$rutinas = $filtro->filtradoPorEntrenador($rutinas,$entrenador);
     $rutinas = $filtro->filtradoPorPrecio($rutinas,$precio_min,$precio_max);
 ?>
@@ -28,15 +23,27 @@
                 <select name="c" class="form-select" id="c">
                     <option value="">--Seleccione Categoria--</option>
                     <?php foreach($categorias as $categoria):?>
-                        <option value="<?= $categoria->getId();?>"><?= $categoria->getNombre();?></option>
+                        <option value="<?= $categoria->getId();?>" <?= $categoria->getId() === $categoriaGet ? 'selected' : '';?>><?= $categoria->getNombre();?></option>
                     <?php endforeach;?>
                 </select>
                 <div class="div-precios">
                     <span>Precio:</span>
                     <label for="minp">Precio minimo</label>
-                    <input type="number" name="minp" min="0" placeholder="minimo" id="minp">
+                    <input 
+                        type="number" 
+                        name="minp" 
+                        min="0" 
+                        placeholder="minimo" 
+                        id="minp"
+                        <?=$precio_min?'value="'.$precio_min.'"':''?>>
                     <label for="maxp">Precio maximo</label>
-                    <input type="number" name="maxp" min="0" placeholder="maximo" id="maxp">
+                    <input 
+                        type="number" 
+                        name="maxp" 
+                        min="0" 
+                        placeholder="maximo" 
+                        id="maxp"
+                        <?=$precio_max != PHP_INT_MAX?'value="'.$precio_max.'"':''?>>
                 </div>
                 <button type="submit" class="btn btn-danger">Filtrar</button>
             </form>   

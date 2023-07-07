@@ -2,6 +2,13 @@
 session_start();
 require_once __DIR__ . '/../../bootstrap/autoload.php';
 
+if(!(new Autenticacion)->estaAutenticado()){
+    $_SESSION['mensajeError'] = 'Se requiere iniciar sesion para visualizar este contenido';
+    header('Location : ../index.php?s=iniciar-sesion');
+    exit;
+}
+
+
 if (isset($_POST['accion'])) {
     $accion = $_POST['accion'];
     $id = isset($_POST['id'])?$_POST['id']:'';
@@ -44,7 +51,7 @@ if (isset($_POST['accion'])) {
                 exit;
             } catch (Exception $error) {
                 if ($error->getCode() === '23000') {//CODIGO DE LA FK ESTA UTILIZADA
-                    $_SESSION['mensajeError'] = 'La categoria: ' .$id . $nombre . ' no puede ser eliminada porque esta siendo utilizada'.$error;
+                    $_SESSION['mensajeError'] = 'La categoria: ' .$id . $nombre . ' no puede ser eliminada porque esta siendo utilizada';
                 }else{
                     $_SESSION['mensajeError'] = 'Algo fallo en la eliminacion de la categoria: ' . $nombre;
                 }

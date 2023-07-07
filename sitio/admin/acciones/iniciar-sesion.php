@@ -12,6 +12,7 @@ try {
         exit;
     }
     $_SESSION['mensajeError'] = 'No eres digno de ingresar como admin';
+    $_SESSION['errorAutenticacion'] = $email;
     header('Location: ../index.php?s=iniciar-sesion');
     exit;
 } catch (Exception $error) {

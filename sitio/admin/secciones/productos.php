@@ -31,7 +31,7 @@ $rutinas = (new Rutinas)->todas();
                      alt="Rutina de <?= $rutina->getCategoria()?> realizada por <?= $rutina->getusuarios_fk()?>" 
                      class="img-admin">
             </td>
-            <td class="esconder-movile"><?=$rutina->getPrecio();?></td>
+            <td class="esconder-movile">$ <?=$rutina->getPrecio();?></td>
             <td>
                 <a href="index.php?s=editar-planificaciones&id=<?= $rutina->getId();?>" class="btn btn-warning">Editar</a>
                 <a href="index.php?s=eliminar-planificaciones&id=<?= $rutina->getId();?>" class="btn btn-danger">Eliminar</a>

@@ -31,6 +31,7 @@ class Usuario{
         //print_r($usuario);
         return $usuario;
     }
+    
     public function porEmail(string $email): ?Usuario{
         $db = (new BD)->getConexion();
         $query = "SELECT * FROM usuarios WHERE email = ?";

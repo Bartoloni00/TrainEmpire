@@ -90,45 +90,54 @@ class Rutinas {
 
         if ($posicion_punto !== false && $posicion_interrogacion !== false) {
              // Si hay tanto un punto como una interrogación, obtener la posición de la primera aparición
-            $posicion = min($posicion_punto, $posicion_interrogacion);
+                $posicion = min($posicion_punto, $posicion_interrogacion);
             } elseif ($posicion_punto !== false) {
             // Si sólo hay un punto, obtener la posición de la primera aparición
-            $posicion = $posicion_punto;
+                $posicion = $posicion_punto;
             } elseif ($posicion_interrogacion !== false) {
             // Si sólo hay una interrogación, obtener la posición de la primera aparición
-            $posicion = $posicion_interrogacion;
+                $posicion = $posicion_interrogacion;
             } else {
             // Si no hay puntos ni interrogaciones, el texto completo es la porción
-            $posicion = strlen($descripcion);
+                $posicion = strlen($descripcion);
             }
-            $resumen = substr($descripcion, 0, $posicion+1);
+        $resumen = substr($descripcion, 0, $posicion+1);
                         
-            return $resumen;
+        return $resumen;
     }
+
     public function setSintesis($sintesis){
         $this->sintesis = $sintesis;
     }
+
     public function getSintesis(){
         return $this->sintesis;
     }
+
     public function getId(): int{
         return $this->id_productos;
     }
+
     public function getTitulo(): string{
         return $this->titulo;
     }
+
     public function getDescripcion(): string{
         return $this->descripcion;
     }
+
     public function getusuarios_fk(): string{
         return $this->usuarios_fk;
     }
+
     public function getPrecio(): int{
         return $this->precio;
     }
+
     public function getImagen(): ?string{
         return $this->imagen;
     }
+    
     public function getCategoria(): string{
         return $this->categorias_fk;
     }
