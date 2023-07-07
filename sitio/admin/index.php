@@ -100,9 +100,15 @@ session_start();
           </li>
         </ul>
       </div>
-      <?php 
-    endif;
-    ?>
+      <?php else:?>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.php">Web</a>
+            </li>
+          </ul>
+        </div>
+      <?php endif;?>
     </div>
 
   </nav>
