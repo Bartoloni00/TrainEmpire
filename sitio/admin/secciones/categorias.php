@@ -63,9 +63,13 @@ if(isset($_SESSION['oldData'])) {
             </div>
             <div class="row mt-3">
                 <div class="col-md-12">
+                <?php if($id == null):?>
                     <button type="submit" class="btn btn-primary" name="accion" value="agregar">Agregar</button>
+                <?php else:?>
                     <button type="submit" class="btn btn-warning" name="accion" value="editar">Editar</button>
                     <button type="submit" class="btn btn-danger" name="accion" value="eliminar">Eliminar</button>
+                    <a href="../admin/index.php?s=categorias" class="btn btn-primary">Restaurar</a>
+                <?php endif;?>
                 </div>
             </div>
         </form>

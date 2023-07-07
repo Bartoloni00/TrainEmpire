@@ -46,12 +46,12 @@ if (isset($_POST['accion'])) {
             // Lógica para el botón "Eliminar"
             try {
                 (new Categorias)->eliminar($id);
-                $_SESSION['mensajeExito'] = 'La categoria "<b>'.$id . $nombre . '</b>" se elimino exitosamente.';
+                $_SESSION['mensajeExito'] = 'La categoria "<b>'. $nombre . '</b>" se elimino exitosamente.';
                 header('Location: ../index.php?s=categorias');
                 exit;
             } catch (Exception $error) {
                 if ($error->getCode() === '23000') {//CODIGO DE LA FK ESTA UTILIZADA
-                    $_SESSION['mensajeError'] = 'La categoria: ' .$id . $nombre . ' no puede ser eliminada porque esta siendo utilizada';
+                    $_SESSION['mensajeError'] = 'La categoria: ' . $nombre . ' no puede ser eliminada porque esta siendo utilizada';
                 }else{
                     $_SESSION['mensajeError'] = 'Algo fallo en la eliminacion de la categoria: ' . $nombre;
                 }

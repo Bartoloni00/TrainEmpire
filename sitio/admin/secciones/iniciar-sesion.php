@@ -1,6 +1,11 @@
 <?php 
-$emailGuardado = $_SESSION['errorAutenticacion']??'';
-unset($_SESSION['errorAutenticacion']);
+if(isset($_SESSION['errorAutenticacion'])) {
+    $emailGuardado = $_SESSION['errorAutenticacion']??'';
+    unset($_SESSION['errorAutenticacion']);
+} else {
+    $emailGuardado = '';
+}
+
 ?>
 <section>
     <h1>Ingresar al panel de administracion</h1>
