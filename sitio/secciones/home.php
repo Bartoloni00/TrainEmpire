@@ -11,11 +11,6 @@
         <h1>TrainEmpire</h1>
         <p>"Convierte tu cuerpo en un imperio"</p>
         <a href="Contactanos" class="btn-contacto">Contactanos</a>
-        <ul class="redes-sociales">
-            <li><a href="http://www.instagram.com" target="_blank">instagram</a></li>
-            <li><a href="http://www.tiktok.com" target="_blank">tiktok</a></li>
-            <li><a href="http://www.youtube.com" target="_blank">youtube</a></li>
-        </ul>
     </div>
     <img src="assets/homePrincipal.svg" alt="ilustracion de comunidad de gym">
     </section>

@@ -19,31 +19,39 @@
     <h1 class="productos-h2">Productos</h1>
     <form action="index.php" method="get" class="filtros">
         <input type="hidden" name="s" value="productos">
-                <label for="c">Filtrar por Categoria</label>
-                <select name="c" class="form-select" id="c">
-                    <option value="">--Seleccione Categoria--</option>
-                    <?php foreach($categorias as $categoria):?>
-                        <option value="<?= $categoria->getId();?>" <?= $categoria->getId() === $categoriaGet ? 'selected' : '';?>><?= $categoria->getNombre();?></option>
-                    <?php endforeach;?>
-                </select>
-                <div class="div-precios">
-                    <span>Precio:</span>
-                    <label for="minp">Precio minimo</label>
-                    <input 
-                        type="number" 
-                        name="minp" 
-                        min="0" 
-                        placeholder="minimo" 
-                        id="minp"
-                        <?=$precio_min?'value="'.$precio_min.'"':''?>>
-                    <label for="maxp">Precio maximo</label>
-                    <input 
-                        type="number" 
-                        name="maxp" 
-                        min="0" 
-                        placeholder="maximo" 
-                        id="maxp"
-                        <?=$precio_max != PHP_INT_MAX?'value="'.$precio_max.'"':''?>>
+                <div class="buscador-container">
+                    <div>
+                        <label for="c">Filtrar por Categoria</label>
+                        <select name="c" class="form-select" id="c">
+                            <option value="">--Seleccione Categoria--</option>
+                            <?php foreach($categorias as $categoria):?>
+                                <option value="<?= $categoria->getId();?>" <?= $categoria->getId() === $categoriaGet ? 'selected' : '';?>><?= $categoria->getNombre();?></option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <div class="div-precios">
+                        <span>Precio:</span>
+                        <div>
+                            <label for="minp">Precio minimo</label>
+                            <input 
+                                type="number" 
+                                class="form-control"
+                                name="minp" 
+                                min="0" 
+                                placeholder="minimo" 
+                                id="minp"
+                                <?=$precio_min?'value="'.$precio_min.'"':''?>>
+                            <label for="maxp">Precio maximo</label>
+                            <input 
+                                type="number" 
+                                class="form-control"
+                                name="maxp" 
+                                min="0" 
+                                placeholder="maximo" 
+                                id="maxp"
+                                <?=$precio_max != PHP_INT_MAX?'value="'.$precio_max.'"':''?>>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-danger">Filtrar</button>
             </form>   
