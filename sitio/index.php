@@ -17,6 +17,12 @@
      'contacto' => [
       'title' => 'Contacto',
      ],
+     'login'=>[
+      'title' => 'Log in'
+     ],
+     'crear-cuenta'=>[
+      'title'=>'Registro'
+     ]
     ];
 
   $vista = $_GET['s'] ?? 'home';

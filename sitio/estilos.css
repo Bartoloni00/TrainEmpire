@@ -436,6 +436,14 @@ label[for="maxp"], label[for="minp"]{
   font-size: .9em;
   color: #990100;
 }
+.contenedor-btn-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor-btn-login p{
+  padding: 1em;
+}
 .registrate{
   font-weight: bolder;
   color: #990100;
