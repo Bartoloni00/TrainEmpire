@@ -1,6 +1,6 @@
 <?php
 //require_once __DIR__.'/../../bootstrap/autoload.php';
-$rutina = (new Rutinas)->conseguirId($_GET['id']);
+$rutina = (new Rutinas)->porId($_GET['id']);
 ?>
 <div class="container">
     <h1>Confirmación de Eliminar</h1>

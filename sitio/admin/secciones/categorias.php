@@ -1,10 +1,10 @@
 <?php
 //require_once __DIR__.'/../../bootstrap/autoload.php';
-$categorias = (new Categorias)->todos();
+$categorias = (new Categorias)->todo();
 $id = isset($_GET['id'])? $_GET['id']: null;
 //echo $id;
 if ($id != null) {
-    $categoria = (new Categorias)->conseguirId($id);
+    $categoria = (new Categorias)->porId($id);
 }
 //require_once __DIR__ . '/../../bootstrap/autoload.php';
 // si existe la variable errores los usamos, sino la definimos vacia

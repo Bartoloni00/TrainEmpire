@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../bd/BD.php';// TODO: esto seguramente tenga que hacerlo en un constructor mas adelante 
-class Rutinas {
+class Rutinas extends Modelo{
+    protected string $tabla = "productos";
+    protected string $clavePrimaria = "id_productos";
+
     private int   $id_productos;
     private string $usuarios_fk;
     private string $titulo;
@@ -16,34 +19,34 @@ class Rutinas {
      *
      * @return array Arreglo con todas las rutinas disponibles.
      */
-    public function todas(): array{
-            $db = (new BD)->getConexion();
-            $query = "SELECT * FROM productos";
-            $stmt = $db->prepare($query);
-            $stmt->execute();
+    // public function todas(): array{
+    //         $db = (new BD)->getConexion();
+    //         $query = "SELECT * FROM productos";
+    //         $stmt = $db->prepare($query);
+    //         $stmt->execute();
 
-            $stmt->setFetchMode(PDO::FETCH_CLASS, Rutinas::class);
-            return $stmt->fetchAll();
-    }
-    /**
-     * Método que retorna una rutina específica según su identificador único.
-     *
-     * @param int $id_productos Identificador único de la rutina.
-     * @return Rutinas|null La rutina correspondiente al identificador especificado, o null si no se encuentra.
-     */
-    public function conseguirId(int $id_productos): ?Rutinas
-    {
-        $db = (new BD)->getConexion();
-        $query = "SELECT * FROM productos WHERE id_productos = ?";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$id_productos]);
+    //         $stmt->setFetchMode(PDO::FETCH_CLASS, Rutinas::class);
+    //         return $stmt->fetchAll();
+    // }
+    // /**
+    //  * Método que retorna una rutina específica según su identificador único.
+    //  *
+    //  * @param int $id_productos Identificador único de la rutina.
+    //  * @return Rutinas|null La rutina correspondiente al identificador especificado, o null si no se encuentra.
+    //  */
+    // public function conseguirId(int $id_productos): ?Rutinas
+    // {
+    //     $db = (new BD)->getConexion();
+    //     $query = "SELECT * FROM productos WHERE id_productos = ?";
+    //     $stmt = $db->prepare($query);
+    //     $stmt->execute([$id_productos]);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS,Rutinas::class);
-        $rutina = $stmt->fetch();
+    //     $stmt->setFetchMode(PDO::FETCH_CLASS,Rutinas::class);
+    //     $rutina = $stmt->fetch();
 
-        if(!$rutina) return null;
-        return $rutina;
-    }
+    //     if(!$rutina) return null;
+    //     return $rutina;
+    // }
     public function crear(array $data){
         $db = (new BD)->getConexion();
         $query = "INSERT INTO productos (usuarios_fk, titulo,descripcion,sintesis,imagen,precio,categorias_fk)

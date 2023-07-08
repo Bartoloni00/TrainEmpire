@@ -13,7 +13,7 @@ class BD{
      * Obtiene la conexion de la base de datos
      * 
      */
-    public function getConexion(): PDO{
+    public static function getConexion(): PDO{
         //La palabra clave self se utiliza para acceder a elementos estáticos de una clase
         if(self::$bd === null){
             $dsn = 'mysql:host='. self::$host.';dbname='.self::$nombre . ';charset=utf8mb4';

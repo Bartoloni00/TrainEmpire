@@ -25,7 +25,7 @@ if(isset($_SESSION['oldData'])) {
                 <label for="categoria_fk">Selecciona Categoría:</label>
                 <select name="categoria_fk" id="categoria_fk" class="form-select" >
                     <option value="">-- Seleccione Categoría --</option>
-                    <?php foreach((new Categorias)->todos() as $categoria_fk):?>
+                    <?php foreach((new Categorias)->todo() as $categoria_fk):?>
                         <option 
                             value="<?= $categoria_fk->getId() ?>"
                             <?= $categoria_fk->getId() == ($oldData['categoria_fk'] ?? null)

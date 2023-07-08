@@ -1,7 +1,7 @@
 <?php
 //require_once __DIR__ . '/../../bootstrap/autoload.php';
 
-$rutina = (new Rutinas)->conseguirId($_GET['id']);
+$rutina = (new Rutinas)->porId($_GET['id']);
 // si existe la variable errores los usamos, sino la definimos vacia
 if(isset($_SESSION['errores'])) {
     $errores = $_SESSION['errores'];
@@ -27,7 +27,7 @@ if(isset($_SESSION['oldData'])) {
                 <label class="form-label" for="categoria_fk">Selecciona Categoría:</label>
                 <select name="categoria_fk" id="categoria_fk" class="form-select" >
                     <option value="">-- Seleccione Categoría --</option>
-                    <?php foreach((new Categorias)->todos() as $categoria_fk):?>
+                    <?php foreach((new Categorias)->todo() as $categoria_fk):?>
                         <option 
                             value="<?= $categoria_fk->getId() ?>"
                             <?= $categoria_fk->getId() == ($oldData['categoria_fk'] ?? ($oldData['categoria_fk'] ?? null) || $categoria_fk->getId() == $rutina->getCategoria())

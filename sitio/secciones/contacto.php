@@ -1,9 +1,9 @@
 <?php
  //require_once __DIR__ . '/../clases/Categorias.php';
- $categorias = (new Categorias)->todos();
+ $categorias = (new Categorias)->todo();
 
 //require_once __DIR__ . '/../clases/Rutinas.php';
-$rutinas = (new Rutinas)->todas();
+$rutinas = (new Rutinas)->todo();
 ?>
 
 <h1>Compra de planificación de entrenamiento</h1>

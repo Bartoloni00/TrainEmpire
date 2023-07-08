@@ -1,9 +1,9 @@
 <?php 
  //$entrenadores = (new Entrenadores)->todos();
 
-    $categorias = (new Categorias)->todos();
+    $categorias = (new Categorias)->todo();
 
- $rutinas = (new Rutinas)->todas();
+ $rutinas = (new Rutinas)->todo();
 
     //$entrenador = isset($_GET['e']) ? $_GET['e'] : '';//entrenador
     $categoriaGet = $_GET['c']??'';//categoria

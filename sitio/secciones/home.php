@@ -3,7 +3,7 @@
     $entrenadores = (new Entrenadores)->todos();
 
     //require_once __DIR__ . '/../clases/Categorias.php';
-    $productos = (new Categorias)->todos();
+    $productos = (new Categorias)->todo();
 ?>
 
     <section class="hero">

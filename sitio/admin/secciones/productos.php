@@ -1,7 +1,7 @@
 <?php
 
 //require_once __DIR__.'/../../bootstrap/autoload.php';
-$rutinas = (new Rutinas)->todas();
+$rutinas = (new Rutinas)->todo();
 ?>
 <section>
     <h1>Administrador de Rutinas</h1>

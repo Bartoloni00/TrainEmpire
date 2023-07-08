@@ -1,6 +1,5 @@
 <?php 
- require_once __DIR__ . '/../clases/modelos/Rutinas.php';
- $rutina = (new Rutinas)->conseguirId($_GET['id']);
+ $rutina = (new Rutinas)->porId($_GET['id']);
 ?>
     <div class="detalles_producto">
         <span><a href="index.php?s=productos">planificaciones</a> > <a href="index.php?s=productos&c=<?= $rutina->getCategoria();?>"><?= $rutina->getCategoria(); ?></a></span>

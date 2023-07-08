@@ -1,37 +1,11 @@
 <?php 
 require_once __DIR__ . '/../bd/BD.php';
-class Categorias{
+class Categorias extends Modelo{
+    protected string $tabla = "categorias";
+    protected string $clavePrimaria = "id_categorias";
+
     private int $id_categorias;
     private string $nombre;
-
-        /**
-     * Obtiene todas las categorias y sus respectivos productos.
-     *
-     * @return Categorias[]  La lista de categorias. Cada categorias es un objeto que contiene las imagenes y otro objeto con las rutinas correspondientes
-     */
-    public function todos(): array{
-            $db = (new BD)->getConexion();
-            $query = "SELECT * FROM categorias";
-            $stmt = $db->prepare($query);
-            $stmt->execute();
-
-            $stmt->setFetchMode(PDO::FETCH_CLASS, Categorias::class);
-            return $stmt->fetchAll();
-    }
-
-    public function conseguirId(int $id_categorias): ?Categorias
-    {
-        $db = (new BD)->getConexion();
-        $query = "SELECT * FROM categorias WHERE id_categorias = ?";
-        $stmt = $db->prepare($query);
-        $stmt->execute([$id_categorias]);
-
-        $stmt->setFetchMode(PDO::FETCH_CLASS,Categorias::class);
-        $categoria = $stmt->fetch();
-
-        if(!$categoria) return null;
-        return $categoria;
-    }
 
     public function crear(string $nombre){
         $db = (new BD)->getConexion();
