@@ -56,7 +56,7 @@
             <a class="nav-link" href="index.php?s=productos">Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="admin/index.php?s=iniciar-sesion">Iniciar sesion</a>
+            <a class="nav-link" href="index.php?s=login">Iniciar sesion</a>
           </li>
         </ul>
       </div>

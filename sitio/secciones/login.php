@@ -5,10 +5,9 @@ if(isset($_SESSION['errorAutenticacion'])) {
 } else {
     $emailGuardado = '';
 }
-
 ?>
 <section>
-    <h1>Ingresar al panel de administracion</h1>
+    <h1>Iniciar sesion</h1>
     <form action="acciones/iniciar-sesion.php" method="post" class="row g-3">
         <div class="col-md-12">
             <label class="form-label" for="email">Correo electrónico:</label>
@@ -25,7 +24,10 @@ if(isset($_SESSION['errorAutenticacion'])) {
             <label class="form-label" for="password">Contraseña</label>
             <input type="password" id="password" name="password" placeholder="Escriba aqui su contraseña" class="form-control" required>
         </div>
-        <button type="submit" class="btn-contacto">Ingresar</button>
+        <div>
+            <button type="submit" class="btn-contacto">Ingresar</button>
+            <p>¿No tienes cuenta? ¡<a href="index.php?s=registro" class="registrate">Registrate</a>!</p>
+        </div>
+        
     </form>
-    <p>¿No tienes cuenta? ¡<a href="index.php?s=registro" class="registrate">Registrate</a>!</p>
 </section>
