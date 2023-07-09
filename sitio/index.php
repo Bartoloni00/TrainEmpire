@@ -69,6 +69,22 @@
     </div>
   </nav>
   <main class="container">
+  <?php
+        if(isset($_SESSION['mensajeExito'])):
+        ?>
+        <div class="msg-exito mb-3"><?= $_SESSION['mensajeExito']; ?></div>
+        <?php
+        unset($_SESSION['mensajeExito']);
+        endif;
+        ?>
+        <?php
+        if(isset($_SESSION['mensajeError'])):
+        ?>
+        <div class="msg-error"><?= $_SESSION['mensajeError']; ?></div>
+        <?php
+        unset($_SESSION['mensajeError']);
+        endif;
+        ?>
         <?php
         require_once __DIR__ . '/secciones/' . $vista . '.php';
         ?>

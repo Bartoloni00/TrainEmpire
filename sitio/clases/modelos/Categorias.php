@@ -13,7 +13,7 @@ class Categorias extends Modelo{
      * @param string $nombre El nombre de la categoria.
      */
     public function crear(string $nombre){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "INSERT INTO categorias (id_categorias , nombre)  VALUES(null,:nombre)";
         $stmt = $db->prepare($query);
         $stmt->execute([':nombre'=>$nombre]);     
@@ -26,7 +26,7 @@ class Categorias extends Modelo{
      * @param string $nombre El nuevo nombre de la categoria.
      */
     public function editar(int $id, string $nombre){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "UPDATE categorias
                   SET   nombre        = :nombre
                   WHERE id_categorias = :id_categorias";
@@ -43,7 +43,7 @@ class Categorias extends Modelo{
      * @param int $id Clave primaria de la categoria a eliminar
      */
     public function eliminar(int $id){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "DELETE FROM categorias WHERE id_categorias = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);

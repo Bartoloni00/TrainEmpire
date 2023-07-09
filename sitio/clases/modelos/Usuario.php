@@ -18,7 +18,7 @@ class Usuario extends Modelo{
  * @return Usuario|null Una instancia de la clase actual o null si no se encuentra el elemento.
  */
     public function porEmail(string $email): ?Usuario{
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$email]);
@@ -30,6 +30,25 @@ class Usuario extends Modelo{
 
         //print_r($usuario);
         return $usuario;
+    }
+    
+        /**
+     * Crea/Agrega un usuario en la tabla usuarios.
+     * 
+     * @param array $data Todos los datos necesarios para ejecutar el query.
+     *      $data debe contener: email, password y rol del mismo.
+     */
+    public function crear(array $data): void
+    {
+        $db = BD::getConexion();
+        $query = "INSERT INTO usuarios (email, password, roles_fk)
+                VALUES (:email, :password, :roles_fk)";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'email'     => $data['email'],
+            'password'  => $data['password'],
+            'roles_fk'    => $data['roles_fk'],
+        ]);
     }
     
     public function getIdUsuario(): int

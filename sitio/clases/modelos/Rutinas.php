@@ -20,7 +20,7 @@ class Rutinas extends Modelo{
      *      $data debe contener: usuarios_fk, titulo, descripcion, sintesis, imagen, precio y categorias_fk.
      */
     public function crear(array $data){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "INSERT INTO productos (usuarios_fk, titulo,descripcion,sintesis,imagen,precio,categorias_fk)
                   VALUES  (:usuarios_fk,:titulo,:descripcion,:sintesis,:imagen,:precio,:categorias_fk)";
         $stmt = $db->prepare($query);
@@ -43,7 +43,7 @@ class Rutinas extends Modelo{
      *      $data debe contener: usuarios_fk, titulo, descripcion, sintesis, imagen, precio y categorias_fk.
      */
     public function editar(int $id, array $data){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "UPDATE productos
                   SET   titulo       = :titulo,
                         descripcion  = :descripcion,
@@ -68,7 +68,7 @@ class Rutinas extends Modelo{
      * @param int $id Clave primaria de la rutina a eliminar
      */
     public function eliminar(int $id){
-        $db = (new BD)->getConexion();
+        $db = BD::getConexion();
         $query = "DELETE FROM productos WHERE id_productos = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);
