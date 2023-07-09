@@ -7,6 +7,11 @@ class Categorias extends Modelo{
     private int $id_categorias;
     private string $nombre;
 
+        /**
+     * Crea/Agrega una categoria en la tabla categorias.
+     * 
+     * @param string $nombre El nombre de la categoria.
+     */
     public function crear(string $nombre){
         $db = (new BD)->getConexion();
         $query = "INSERT INTO categorias (id_categorias , nombre)  VALUES(null,:nombre)";
@@ -14,6 +19,12 @@ class Categorias extends Modelo{
         $stmt->execute([':nombre'=>$nombre]);     
     }
 
+           /**
+     * Modifica una categoria en la tabla categorias.
+     * 
+     * @param int $id Clave primaria de la categoria a modificar.
+     * @param string $nombre El nuevo nombre de la categoria.
+     */
     public function editar(int $id, string $nombre){
         $db = (new BD)->getConexion();
         $query = "UPDATE categorias
@@ -26,6 +37,11 @@ class Categorias extends Modelo{
         ]);
     }
 
+            /**
+     * Elimina una categoria en la tabla categorias.
+     * 
+     * @param int $id Clave primaria de la categoria a eliminar
+     */
     public function eliminar(int $id){
         $db = (new BD)->getConexion();
         $query = "DELETE FROM categorias WHERE id_categorias = ?";

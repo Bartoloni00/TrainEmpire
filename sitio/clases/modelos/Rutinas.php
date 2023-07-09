@@ -13,40 +13,12 @@ class Rutinas extends Modelo{
     private int    $precio;
     private string $categorias_fk;
 
-
     /**
-     * Método que retorna todas las rutinas disponibles en el sistema.
-     *
-     * @return array Arreglo con todas las rutinas disponibles.
+     * Crea/Agrega una rutina/planificacion en la tabla productos.
+     * 
+     * @param array $data Todos los datos necesarios para ejecutar el query.
+     *      $data debe contener: usuarios_fk, titulo, descripcion, sintesis, imagen, precio y categorias_fk.
      */
-    // public function todas(): array{
-    //         $db = (new BD)->getConexion();
-    //         $query = "SELECT * FROM productos";
-    //         $stmt = $db->prepare($query);
-    //         $stmt->execute();
-
-    //         $stmt->setFetchMode(PDO::FETCH_CLASS, Rutinas::class);
-    //         return $stmt->fetchAll();
-    // }
-    // /**
-    //  * Método que retorna una rutina específica según su identificador único.
-    //  *
-    //  * @param int $id_productos Identificador único de la rutina.
-    //  * @return Rutinas|null La rutina correspondiente al identificador especificado, o null si no se encuentra.
-    //  */
-    // public function conseguirId(int $id_productos): ?Rutinas
-    // {
-    //     $db = (new BD)->getConexion();
-    //     $query = "SELECT * FROM productos WHERE id_productos = ?";
-    //     $stmt = $db->prepare($query);
-    //     $stmt->execute([$id_productos]);
-
-    //     $stmt->setFetchMode(PDO::FETCH_CLASS,Rutinas::class);
-    //     $rutina = $stmt->fetch();
-
-    //     if(!$rutina) return null;
-    //     return $rutina;
-    // }
     public function crear(array $data){
         $db = (new BD)->getConexion();
         $query = "INSERT INTO productos (usuarios_fk, titulo,descripcion,sintesis,imagen,precio,categorias_fk)
@@ -62,6 +34,14 @@ class Rutinas extends Modelo{
             'precio'     =>$data['precio']
         ]);          
     }
+
+    /**
+     * Edita una rutina/planificacion en la tabla productos.
+     * 
+     * @paran int $id Clave primaria de la rutina a modificar.
+     * @param array $data Todos los datos necesarios para ejecutar el query.
+     *      $data debe contener: usuarios_fk, titulo, descripcion, sintesis, imagen, precio y categorias_fk.
+     */
     public function editar(int $id, array $data){
         $db = (new BD)->getConexion();
         $query = "UPDATE productos
@@ -81,13 +61,26 @@ class Rutinas extends Modelo{
             'id_productos'=>$id
         ]);
     }
+
+        /**
+     * Elimina una rutina/planificacion en la tabla productos.
+     * 
+     * @param int $id Clave primaria de la rutina a eliminar
+     */
     public function eliminar(int $id){
         $db = (new BD)->getConexion();
         $query = "DELETE FROM productos WHERE id_productos = ?";
         $stmt = $db->prepare($query);
         $stmt->execute([$id]);
     }
-    public function crearSintesis($descripcion){
+
+        /**
+     * Acorta la descripcion dependiendo de cuando aparece el primer . (punto) o ? (interrogacion)
+     * 
+     * @param string $descripcion Texto completo que deseamos acortar.
+     * @return string Texto acortado
+     */
+    public function crearSintesis( string $descripcion) :string{
         $posicion_punto = strpos($descripcion, ".");
         $posicion_interrogacion = strpos($descripcion, "?");
 

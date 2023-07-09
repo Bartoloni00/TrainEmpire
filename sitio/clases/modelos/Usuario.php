@@ -10,31 +10,13 @@ class Usuario extends Modelo{
     private string $email;
     private string $password;
     private ?string $username;
-
-    // public function porId(string $id):?Usuario{
-    //     $db = (new BD)->getConexion();
-    //     $query = "SELECT * FROM usuarios WHERE id_usuarios = ?";
-    //     $stmt = $db->prepare($query);
-    //     $stmt->execute([$id]);
-
-    //     $stmt->setFetchMode(PDO::FETCH_CLASS, Usuario::class);
-    //     /*
-    //     Cuando se utiliza FETCH_CLASS, lo que sucede es que los valores de las columnas seleccionadas en la 
-    //     consulta SQL se asignan directamente a las propiedades correspondientes de la instancia de la clase Usuario.
-    //      Esto se realiza asumiendo que los nombres de las propiedades de la clase Usuario coinciden con los nombres 
-    //      de las columnas en la base de datos. No se realiza una asignación directa a través de los métodos de la clase.
-    //     Por ejemplo, si tienes una columna contrasenia en la tabla de la base de datos y una propiedad $contrasenia en 
-    //     la clase Usuario, al usar FETCH_CLASS, el valor de la columna contrasenia se asignará directamente a la 
-    //     propiedad $contrasenia sin pasar por ningún método.
-    //     */
-    //     $usuario = $stmt->fetch();
-
-    //     if(!$usuario) return null;
-
-    //     //print_r($usuario);
-    //     return $usuario;
-    // }
     
+    /**
+ * Trae a un usuario dependiendo de su email.
+ *
+ * @param string $email Email del usuario que se desea traer.
+ * @return Usuario|null Una instancia de la clase actual o null si no se encuentra el elemento.
+ */
     public function porEmail(string $email): ?Usuario{
         $db = (new BD)->getConexion();
         $query = "SELECT * FROM usuarios WHERE email = ?";
