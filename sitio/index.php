@@ -1,5 +1,6 @@
 <?php 
-  require_once __DIR__ . '/bootstrap/autoload.php';
+require_once __DIR__ . '/bootstrap/autoload.php';
+session_start();
 
   $rutas = [
     'error' => [
@@ -33,6 +34,14 @@
   }
 
   $rutaOpciones = $rutas[$vista];
+
+  $autenticacion = new Autenticacion();
+  $requiereAutenticacion = $rutaOpciones['requiereAutenticacion'] ?? false;
+  if($requiereAutenticacion && !$autenticacion->estaAutenticado()){
+    $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para ver este contenido.';
+    header('Location: index.php?s=home');
+    exit;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,9 +70,23 @@
           <li class="nav-item">
             <a class="nav-link" href="index.php?s=productos">Productos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?s=login">Iniciar sesion</a>
-          </li>
+          <?php if($autenticacion->estaAutenticado()):?>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?s=carrito">Carrito</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin/index.php?s=dashboard">Administrador</a>
+            </li>
+            <li class="nav-item">
+              <form action="acciones/cerrar-sesion.php" method="post">
+                <button type="submit" class="nav-link"><?= $autenticacion->getUsuario()->getUsername()?$autenticacion->getUsuario()->getUsername():$autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
+              </form>
+            </li>
+          <?php else:?>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?s=login">Iniciar sesion</a>
+            </li>
+          <?php endif;?>
         </ul>
       </div>
     </div>

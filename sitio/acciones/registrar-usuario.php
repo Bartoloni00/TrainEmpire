@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ .'/../bootstrap/autoload.php';
 
 $email = $_POST['email'];

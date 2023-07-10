@@ -2,21 +2,6 @@ nav button{
     border: none;
     background: #f8f9fa;
 }
-.msg-error,.msg-exito{
-    font-weight: bolder;
-    text-align: center;
-    border-radius: 25px;
-    margin: 2px 20px;
-}
-.msg-error{
-  background: #99010066;
-}
-.msg-exito{
-  background: #00990166;
-}
-form .msg-error{
-  font-size: .7em;
-}
 .img-editar{
   width: 100%;
   clip-path: ellipse(70% 70% at 50% 50%);

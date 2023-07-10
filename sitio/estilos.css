@@ -537,6 +537,21 @@ footer>div:last-of-type p {
   text-align: center;
   font-size: .8em;
 }
+.msg-error,.msg-exito{
+  font-weight: bolder;
+  text-align: center;
+  border-radius: 25px;
+  margin: 2px 20px;
+}
+.msg-error{
+background: #99010066;
+}
+.msg-exito{
+background: #00990166;
+}
+form .msg-error{
+font-size: .7em;
+}
 @media only screen and (max-width: 768px){
   *{
     font-size: 20px;
