@@ -2,18 +2,19 @@
 session_start();
 require_once __DIR__ . '/../../bootstrap/autoload.php';
 
-if (!(new Autenticacion)->estaAutenticado()) {
+$autenticado = (new Autenticacion);
+if (!$autenticado->estaAutenticado()) {
     $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para acceder a este contenido';
     header('Location: ../index.php?s=iniciar-sesion');
     exit;
 }
-if ($autenticado->getUsuario()->getRolFk() !== 1) {
+if ($autenticado->getUsuario()->getRolFk() === 3) {
     $_SESSION['mensajeError'] = 'Necesitas ser Administrador para visualizar este contenido';
     header('Location : ../index.php?s=dashboard');
     exit;
 }
 $categoria_fk  = $_POST['categoria_fk'];
-$usuarios_fk = (new Autenticacion)->getUsuario()->getIdUsuario();
+$usuarios_fk = $autenticado->getUsuario()->getIdUsuario();
 $titulo = $_POST['titulo'];
 $descripcion = $_POST['descripcion'];
 $sintesis = (isset($_POST['sinopsis']) && !(empty($_POST['sinopsis'])))?$_POST['sinopsis']:(new Rutinas)->crearSintesis($descripcion);

@@ -2,6 +2,10 @@
 
 //require_once __DIR__.'/../../bootstrap/autoload.php';
 $rutinas = (new Rutinas)->todo();
+if ($autenticacion->getUsuario()->getRolFk() != 1) {
+    $filtrado = (new Filtro)->filtradoPorEntrenador($rutinas,$autenticacion->getUsuario()->getIdUsuario());
+    $rutinas = $filtrado;
+}
 ?>
 <section>
     <h1>Administrador de Rutinas</h1>

@@ -36,7 +36,7 @@ class Filtro {
         if ($filtro !== '') {
             $arrayFiltrado = [];
             foreach ($array as $objeto) {
-                if ($objeto->getEntrenador() === $filtro) {
+                if ($objeto->getusuarios_fk() === $filtro) {
                     $arrayFiltrado[] = $objeto;
                 }
             }
