@@ -27,7 +27,13 @@ session_start();
      ],
      'categorias' => [
       'title' => 'Nuestras categorias',
-      'requiereAutenticacion' => true
+      'requiereAutenticacion' => true,
+      'soloAdmin' => true
+     ],
+     'usuarios' => [
+      'title' => 'Usuarios',
+      'requiereAutenticacion' => true,
+      'soloAdmin' => true
      ],
      'iniciar-sesion' => [
       'title' => 'Ingresar al panel de administracion',
@@ -45,16 +51,17 @@ session_start();
 
   $autenticacion = new Autenticacion();
   $requiereAutenticacion = $rutaOpciones['requiereAutenticacion'] ?? false;
+  $soloAdmin = $rutaOpciones['soloAdmin'] ?? false;
   if($requiereAutenticacion && !$autenticacion->estaAutenticado()){
     $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para ver este contenido.';
     header('Location: index.php?s=iniciar-sesion');
     exit;
   }
-  // if (!($autenticacion->estaAutenticado())) {
-  //   echo 'no esta autenticado';
-  // }else{
-  //   echo 'esta autenticado';
-  // }
+  if($soloAdmin && $autenticacion->getUsuario()->getRolFk() != 1){
+    $_SESSION['mensajeError'] = 'Necesitas ser Administrador para visualizar este contenido';
+    header('Location: index.php?s=dashboard');
+    exit;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -85,14 +92,16 @@ session_start();
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?s=dashboard">Panel</a>
           </li>
+          <?php if ($autenticacion->getUsuario()->getRolFk() === 1):?>
           <li class="nav-item">
             <a class="nav-link" href="index.php?s=productos">Productos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?s=categorias">Categorias</a>
           </li>
+          <?php endif;?>
           <li class="nav-item">
-            <a class="nav-link" href="../index.php" target="_blank">Web</a>
+            <a class="nav-link" href="../index.php">Web</a>
           </li>
           <li class="nav-item">
             <form action="acciones/cerrar-sesion.php" method="post">

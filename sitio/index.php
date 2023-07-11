@@ -71,12 +71,15 @@ session_start();
             <a class="nav-link" href="index.php?s=productos">Productos</a>
           </li>
           <?php if($autenticacion->estaAutenticado()):?>
-            <li class="nav-item">
-              <a class="nav-link" href="index.php?s=carrito">Carrito</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="admin/index.php?s=dashboard">Administrador</a>
-            </li>
+            <?php if($autenticacion->getUsuario()->getRolFk() === 2)://si el usuario es entrenador?>
+              <li class="nav-item">
+                <a class="nav-link" href="admin/index.php?s=dashboard">Administrador</a>
+              </li>
+            <?php else:?>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?s=carrito">Carrito</a>
+              </li>
+            <?php endif;?>
             <li class="nav-item">
               <form action="acciones/cerrar-sesion.php" method="post">
                 <button type="submit" class="nav-link"><?= $autenticacion->getUsuario()->getUsername()?$autenticacion->getUsuario()->getUsername():$autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>

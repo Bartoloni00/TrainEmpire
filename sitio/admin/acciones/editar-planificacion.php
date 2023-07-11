@@ -10,7 +10,7 @@ if(!(new Autenticacion)->estaAutenticado()){
 }
 
 $id = $_GET['id'];
-$rutina = (new Rutinas)->conseguirId($id);
+$rutina = (new Rutinas)->porId($id);
 
 $categoria_fk  = $_POST['categoria_fk'];
 $usuarios_fk = $_POST['usuarios_fk'];

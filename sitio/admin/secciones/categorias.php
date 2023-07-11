@@ -1,5 +1,6 @@
 <?php
 //require_once __DIR__.'/../../bootstrap/autoload.php';
+
 $categorias = (new Categorias)->todo();
 $id = isset($_GET['id'])? $_GET['id']: null;
 //echo $id;

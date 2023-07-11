@@ -35,7 +35,6 @@ if(isset($_SESSION['oldData'])) {
                     <?php endforeach;?>
                 </select>
             </div>
-            <input type="hidden" name="usuarios_fk" value="<?= $autenticacion->getUsuario()->getIdUsuario(); ?>">
         </div>
         <div class="row mt-3">
             <div class="col-md-12">

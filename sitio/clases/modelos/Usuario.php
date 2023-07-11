@@ -6,7 +6,7 @@ class Usuario extends Modelo{
     protected string $clavePrimaria = "id_usuarios";
 
     private int $id_usuarios;//estos nombres tiene que ser igual al de la BD
-    private int $rol_fk;
+    private int $roles_fk;
     private string $email;
     private string $password;
     private ?string $username;
@@ -63,12 +63,12 @@ class Usuario extends Modelo{
 
     public function getRolFk(): int
     {
-        return $this->rol_fk;
+        return $this->roles_fk;
     }
 
-    public function setRolFk(int $rol_fk): void
+    public function setRolFk(int $roles_fk): void
     {
-        $this->rol_fk = $rol_fk;
+        $this->roles_fk = $roles_fk;
     }
 
     public function getEmail(): string

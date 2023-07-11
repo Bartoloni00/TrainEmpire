@@ -27,5 +27,4 @@ if(isset($_SESSION['errorAutenticacion'])) {
         </div>
         <button type="submit" class="btn-contacto">Ingresar</button>
     </form>
-    <p>¿No tienes cuenta? ¡<a href="index.php?s=registro" class="registrate">Registrate</a>!</p>
 </section>

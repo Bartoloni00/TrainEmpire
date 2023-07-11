@@ -9,7 +9,7 @@ if (!(new Autenticacion)->estaAutenticado()) {
 }
 $id = $_GET['id'];
 
-$rutina = (new Rutinas)->conseguirId($id);
+$rutina = (new Rutinas)->porId($id);
 
 if(!$rutina){
     header('Location: ../index.php?s=productos');
