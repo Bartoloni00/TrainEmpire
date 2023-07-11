@@ -52,9 +52,15 @@ session_start();
   $autenticacion = new Autenticacion();
   $requiereAutenticacion = $rutaOpciones['requiereAutenticacion'] ?? false;
   $soloAdmin = $rutaOpciones['soloAdmin'] ?? false;
+  
   if($requiereAutenticacion && !$autenticacion->estaAutenticado()){
     $_SESSION['mensajeError'] = 'Se requiere haber iniciado sesion para ver este contenido.';
     header('Location: index.php?s=iniciar-sesion');
+    exit;
+  }
+  if($autenticacion->getUsuario()->getRolFk() === 3){
+    $_SESSION['mensajeError'] = 'No posees permisos para visualizar este contenido';
+    header('Location: ../index.php?s=home');
     exit;
   }
   if($soloAdmin && $autenticacion->getUsuario()->getRolFk() != 1){

@@ -7,6 +7,11 @@ if (!(new Autenticacion)->estaAutenticado()) {
     header('Location: ../index.php?s=iniciar-sesion');
     exit;
 }
+if ($autenticado->getUsuario()->getRolFk() !== 1) {
+    $_SESSION['mensajeError'] = 'Necesitas ser Administrador para visualizar este contenido';
+    header('Location : ../index.php?s=dashboard');
+    exit;
+}
 $categoria_fk  = $_POST['categoria_fk'];
 $usuarios_fk = (new Autenticacion)->getUsuario()->getIdUsuario();
 $titulo = $_POST['titulo'];

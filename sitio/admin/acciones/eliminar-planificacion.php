@@ -7,6 +7,11 @@ if (!(new Autenticacion)->estaAutenticado()) {
     header('Location: ../index.php?s=iniciar-sesion');
     exit;
 }
+if ($autenticado->getUsuario()->getRolFk() !== 1) {
+    $_SESSION['mensajeError'] = 'Necesitas ser Administrador para visualizar este contenido';
+    header('Location : ../index.php?s=dashboard');
+    exit;
+}
 $id = $_GET['id'];
 
 $rutina = (new Rutinas)->porId($id);
