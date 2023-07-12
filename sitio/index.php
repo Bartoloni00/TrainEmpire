@@ -18,6 +18,9 @@ session_start();
      'contacto' => [
       'title' => 'Contacto',
      ],
+     'carrito' => [
+      'title' => 'Carrito de compras',
+     ],
      'login'=>[
       'title' => 'Log in'
      ],

@@ -8,9 +8,18 @@
             <div>
                 <h1><?= $rutina->getTitulo();?></h1>
                 <span class="precio">$ <?= $rutina->getPrecio(); ?></span>
-                <span class="entrenador">Entrenador: <?= $rutina->getusuarios_fk(); ?></span>
+                <!-- <span class="entrenador">Entrenador: <?= $rutina->getusuarios_fk(); ?></span> -->
                 <p><?= $rutina->getDescripcion(); ?></p>
-                <a href="index.php?s=contacto&id=<?= $rutina->getId();?>" class="btn-contacto">Contratar ahora</a>
+                <?php if((new Autenticacion)->estaAutenticado()):?>
+                <form action="acciones/anadir-carrito.php" method="post">
+                    <input type="hidden" name="id_producto" value="<?=  $rutina->getId() ;?>">
+                    <button type="submit" class="btn-contacto">
+                        Añadir al carrito
+                    </button>
+                </form>
+                <?php else:?>
+                <a href="index.php?s=login" class="btn-contacto">Añadir al carrito</a>
+                <?php endif;?>
             </div>
         </div>
     </div>
