@@ -15,10 +15,13 @@ $id_usuarios = $autenticacion->getUsuario()->getIdUsuario();
 $id_producto = $_POST['id_producto'];
 
 try {
-    $a;
     if ($carrito->usuarioTieneCarrito($id_usuarios)) {
+        $id_carrito = $carrito->encontrarCarritoDelUsuario($id_usuarios);
+        $carrito->agregarProductoAlCarrito([
+            'productos_fk'=>$id_producto,
+            'carrito_fk'=>$id_carrito
+        ]);
         //Agregar el producto a este carrito
-        $a = 'if';
     }else{
         $fecha = date('Y-m-d');
         $usuarios_fk = $id_usuarios;
@@ -27,10 +30,14 @@ try {
             'fecha'=>$fecha,
             'usuarios_fk'=>$usuarios_fk
         ]);
+        $id_carrito = $carrito->encontrarCarritoDelUsuario($id_usuarios);
+        $carrito->agregarProductoAlCarrito([
+            'productos_fk'=>$id_producto,
+            'carrito_fk'=>$id_carrito
+        ]);
         //Agregar el producto a este carrito
-        $a = 'else';
     }
-    $_SESSION['mensajeExito'] = 'El producto a sido agregado al carrito' . $a;
+    $_SESSION['mensajeExito'] = 'El producto a sido agregado al carrito';
     header('Location: ../index.php?s=detalles&id='. $id_producto);
     exit;
 } catch (\Exception $error) {

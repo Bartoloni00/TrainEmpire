@@ -36,13 +36,58 @@ class Carrito {
     return $totalCarritos > 0;
     }
 
-    public function agregarProductoAlCarrito(){
+    public function encontrarCarritoDelUsuario(int $id_usuario) :?int{
+        $db = BD::getConexion();
+        $query = "SELECT id_carrito
+                    FROM carrito
+                    WHERE usuarios_fk = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id_usuario]);
         
+        $carrito = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($carrito) {
+            return $carrito['id_carrito'];
+        } else {
+            return null;
+        }
+    }
+
+     /**
+     * agrega un producto al carrito
+     * @param array $data debe contener productos_fk y carrito_fk;
+     * usuarios_fk es el id del usuario
+     */
+    public function agregarProductoAlCarrito(array $data){
+        $db = BD::getConexion();
+        $query = "INSERT INTO producto_en_carrito (cantidad,productos_fk,carrito_fk)
+                    VALUES (1,:productos_fk,:carrito_fk)";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'productos_fk'=>$data['productos_fk'],
+            'carrito_fk'=>$data['carrito_fk']
+        ]);
     }
     /**
-     * Trae los productos que el usuario agrego a su carrito
-     */
-    public function productosCarrito(){
+ * Trae los productos que el usuario agregó a su carrito
+ * @param int $carrito_fk : ID del carrito
+ * @return array|null : Array de productos o null si no se encontraron productos
+ */
+public function productosCarrito(int $carrito_fk): ?array {
+    $db = BD::getConexion();
+    $query = "SELECT pc.*
+              FROM producto_en_carrito pc
+              WHERE pc.carrito_fk = ?";
+    $stmt = $db->prepare($query);
+    $stmt->execute([$carrito_fk]);
 
+    $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($productos) {
+        return $productos;
+    } else {
+        return null;
     }
+}
+
 }
