@@ -449,6 +449,23 @@ label[for="maxp"], label[for="minp"]{
   color: #990100;
   text-decoration: none;
 }
+/*----------------------------------------Carrito----------------------------------------------*/
+.carrito{
+  background-color: var(--color-primario2);
+  width: 50%;
+}
+.carrito .tarjeta_carrito{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em;
+}
+.carrito .tarjeta_carrito div:first-of-type{
+  width: 50%;
+}
+.carrito img{
+  width: 100%;
+}
 /*----------------------------------------Footer-----------------------------------------------*/
 .contenedor{
   max-width: 1170px;

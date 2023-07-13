@@ -68,6 +68,27 @@ class Carrito {
             'carrito_fk'=>$data['carrito_fk']
         ]);
     }
+
+        /**
+     * Esta funcion revisa si el carrito ya posee ese producto.
+     * @param array $data id del producto y id del carrito
+     * @return bool true en caso de aparecer 1 o mas veces el producto en el carrito y false en caso contrario.
+     */
+    public function productoEstaEnCarrito(array $data) :bool{
+        $db = BD::getConexion();
+        $query = "SELECT COUNT(*) AS total_producto_en_carrito
+                  FROM producto_en_carrito
+                  WHERE productos_fk = :productos_fk AND carrito_fk = :carrito_fk";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'productos_fk'=>$data['productos_fk'],
+            'carrito_fk'=>$data['carrito_fk']
+        ]);
+    
+        $totalProductos = $stmt->fetchColumn();
+        
+        return $totalProductos > 0;
+        }
     /**
  * Trae los productos que el usuario agregó a su carrito
  * @param int $carrito_fk : ID del carrito

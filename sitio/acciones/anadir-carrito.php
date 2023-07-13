@@ -17,11 +17,19 @@ $id_producto = $_POST['id_producto'];
 try {
     if ($carrito->usuarioTieneCarrito($id_usuarios)) {
         $id_carrito = $carrito->encontrarCarritoDelUsuario($id_usuarios);
-        $carrito->agregarProductoAlCarrito([
+        if (!$carrito->productoEstaEnCarrito([
             'productos_fk'=>$id_producto,
             'carrito_fk'=>$id_carrito
-        ]);
-        //Agregar el producto a este carrito
+            ])) 
+        {
+            $carrito->agregarProductoAlCarrito([
+                'productos_fk'=>$id_producto,
+                'carrito_fk'=>$id_carrito
+            ]);
+            $_SESSION['mensajeExito'] = 'El producto a sido agregado al carrito';
+        }else{
+            $_SESSION['mensajeError'] = 'el producto ya existe en el carrito';
+        }
     }else{
         $fecha = date('Y-m-d');
         $usuarios_fk = $id_usuarios;
@@ -30,14 +38,22 @@ try {
             'fecha'=>$fecha,
             'usuarios_fk'=>$usuarios_fk
         ]);
+        //agrego el producto al carrito
         $id_carrito = $carrito->encontrarCarritoDelUsuario($id_usuarios);
-        $carrito->agregarProductoAlCarrito([
+        if (!$carrito->productoEstaEnCarrito([
             'productos_fk'=>$id_producto,
             'carrito_fk'=>$id_carrito
-        ]);
-        //Agregar el producto a este carrito
+            ])) 
+        {
+            $carrito->agregarProductoAlCarrito([
+                'productos_fk'=>$id_producto,
+                'carrito_fk'=>$id_carrito
+            ]);
+            $_SESSION['mensajeExito'] = 'El producto a sido agregado al carrito';
+        }else{
+            $_SESSION['mensajeError'] = 'el producto ya existe en el carrito';
+        }
     }
-    $_SESSION['mensajeExito'] = 'El producto a sido agregado al carrito';
     header('Location: ../index.php?s=detalles&id='. $id_producto);
     exit;
 } catch (\Exception $error) {
