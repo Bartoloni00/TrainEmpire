@@ -20,6 +20,7 @@ session_start();
      ],
      'carrito' => [
       'title' => 'Carrito de compras',
+      'requiereAutenticacion' => true
      ],
      'login'=>[
       'title' => 'Log in'

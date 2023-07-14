@@ -69,6 +69,22 @@ class Carrito {
         ]);
     }
 
+    /**
+     * Elimina un producto de la tabla producto_en_carrito
+     * 
+     * @param int $id_producto_en_carrito
+     */
+    public function eliminarDelCarrito(int $id_producto_en_carrito){
+        require_once __DIR__ . '/../bd/BD.php';// TODO: revisar porque tengo que hacer esta importacion
+        /* 
+            No entiendo porque al ejecutar este metodo parece haber un problema de scope y no encuentra la clase BD
+        */
+        $db = BD::getConexion();
+        $query = "DELETE FROM producto_en_carrito WHERE id_producto_en_carrito = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id_producto_en_carrito]);
+    }
+
         /**
      * Esta funcion revisa si el carrito ya posee ese producto.
      * @param array $data id del producto y id del carrito
@@ -89,6 +105,7 @@ class Carrito {
         
         return $totalProductos > 0;
         }
+
     /**
  * Trae los productos que el usuario agregó a su carrito
  * @param int $carrito_fk : ID del carrito
@@ -110,5 +127,7 @@ public function productosCarrito(int $carrito_fk): ?array {
         return null;
     }
 }
+
+
 
 }

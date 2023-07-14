@@ -450,21 +450,61 @@ label[for="maxp"], label[for="minp"]{
   text-decoration: none;
 }
 /*----------------------------------------Carrito----------------------------------------------*/
-.carrito{
-  background-color: var(--color-primario2);
-  width: 50%;
+.carrito_container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5vh;
 }
+.carrito_container section:last-of-type .btn-contacto{
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.carrito{
+  width: 60%;
+}
+
 .carrito .tarjeta_carrito{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2em;
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid var(--color-secundario);
+  border-radius: 25px;
+  position: relative;
 }
 .carrito .tarjeta_carrito div:first-of-type{
   width: 50%;
 }
+
 .carrito img{
   width: 100%;
+  clip-path: ellipse(70% 70% at 50% 50%);
+}
+.carrito .tarjeta_carrito div:last-of-type{
+  text-align: right;
+}
+.tarjeta_carrito form{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+.carrito_precio{
+  border: 2px solid var(--color-secundario);
+  border-radius: 25px;
+  padding: 2em;
+  height: 100%;
+}
+.carrito_precio li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: .6em;
+}
+.carrito_precio li:last-of-type{
+  border-top: 1px solid var(--color-terciario);
 }
 /*----------------------------------------Footer-----------------------------------------------*/
 .contenedor{
