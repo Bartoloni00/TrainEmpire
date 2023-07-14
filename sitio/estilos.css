@@ -643,6 +643,13 @@ font-size: .7em;
   .footer-col{
     width: 50%;
  }
+ .carrito_container{
+  flex-wrap: wrap;
+ }
+ .carrito, .carrito_precio{
+  width: 100%;
+ }
+
 }
 @media(max-width: 574px){
   .hero h1{
@@ -651,5 +658,14 @@ font-size: .7em;
   .footer-col{
     width: 100%;
     margin: auto;
+}
+.carrito .tarjeta_carrito{
+  flex-wrap: wrap;
+}
+.carrito .tarjeta_carrito div:first-of-type {
+  width: 100%;
+}
+.carrito .tarjeta_carrito div:last-of-type {
+  text-align: center;
 }
 }

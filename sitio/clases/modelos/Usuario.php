@@ -10,6 +10,7 @@ class Usuario extends Modelo{
     private string $email;
     private string $password;
     private ?string $username;
+    private ?string $imagen;
     
     /**
  * Trae a un usuario dependiendo de su email.
@@ -99,5 +100,15 @@ class Usuario extends Modelo{
     public function setUsername(?string $username): void
     {
         $this->username = $username;
+    }
+
+    public function getImagen(): ?string
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen(?string $imagen): void
+    {
+        $this->imagen = $imagen;
     }
 }
