@@ -35,6 +35,11 @@ session_start();
       'requiereAutenticacion' => true,
       'soloAdmin' => true
      ],
+     'eliminar-usuario' => [
+      'title' => 'Eliminar usuario',
+      'requiereAutenticacion' => true,
+      'soloAdmin' => true
+     ],
      'iniciar-sesion' => [
       'title' => 'Ingresar al panel de administracion',
      ],

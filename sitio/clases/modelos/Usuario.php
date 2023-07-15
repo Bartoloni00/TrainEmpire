@@ -51,6 +51,13 @@ class Usuario extends Modelo{
             'roles_fk'    => $data['roles_fk'],
         ]);
     }
+    public function eliminar(int $id): void
+    {
+        $db = BD::getConexion();
+        $query = "DELETE FROM usuarios WHERE id_usuarios = ?";
+        $stmt = $db->prepare($query);
+        $stmt->execute([$id]);
+    }
     
     public function getIdUsuario(): int
     {

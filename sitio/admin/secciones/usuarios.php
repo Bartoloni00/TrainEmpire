@@ -1,5 +1,6 @@
 <?php
 $usuarios = (new Usuario)->todo();
+$rol = (new Roles);
 ?>
 <section>
     <h1>Administrador de Usuarios</h1>
@@ -16,7 +17,7 @@ $usuarios = (new Usuario)->todo();
         <?php foreach ($usuarios as $usuario):?>
         <tr>
             <td class="esconder-movile"><?=$usuario->getEmail();?></td>
-            <td><?=$usuario->getRolFk();?></td>
+            <td><?=$rol->porId($usuario->getRolFk())->getNombre();?></td>
             <td class="esconder-tablet"><?=$usuario->getUsername() !== null?$usuario->getUsername():'sin username';?></td>
             <td>
                 <a href="index.php?s=eliminar-usuario&id=<?= $usuario->getIdUsuario();?>" class="btn btn-danger">Eliminar</a>
