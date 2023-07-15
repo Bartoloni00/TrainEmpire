@@ -9,7 +9,7 @@ $rutina = (new Rutinas)->porId($_GET['id']);
 
     <article class="detalles_producto">
         <div>
-            <img src="../assets/productos/<?= $rutina->getImagen();?>" alt="planificacion de <?= $rutina->getCategoria(); ?>">
+        <img src="../assets/productos/<?=$rutina->getImagen()?$rutina->getImagen():'defecto.jpg';?>" class="card-img-top" alt="planificacion de <?= $rutina->getTitulo(); ?>">
             <div>
                 <h2><?= $rutina->getTitulo();?></h2>
                 <span class="precio">$ <?= $rutina->getPrecio(); ?></span>

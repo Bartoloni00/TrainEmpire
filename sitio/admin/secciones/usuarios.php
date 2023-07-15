@@ -19,8 +19,7 @@ $usuarios = (new Usuario)->todo();
             <td><?=$usuario->getRolFk();?></td>
             <td class="esconder-tablet"><?=$usuario->getUsername() !== null?$usuario->getUsername():'sin username';?></td>
             <td>
-                <a href="index.php?s=editar-planificaciones&id=<?= $usuario->getIdUsuario();?>" class="btn btn-warning">Editar</a>
-                <a href="index.php?s=eliminar-planificaciones&id=<?= $usuario->getIdUsuario();?>" class="btn btn-danger">Eliminar</a>
+                <a href="index.php?s=eliminar-usuario&id=<?= $usuario->getIdUsuario();?>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
         <?php endforeach;?>

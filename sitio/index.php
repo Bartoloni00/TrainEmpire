@@ -22,6 +22,10 @@ session_start();
       'title' => 'Carrito de compras',
       'requiereAutenticacion' => true
      ],
+     'perfil' => [
+      'title' => 'Tu perfil',
+      'requiereAutenticacion' => true
+     ],
      'login'=>[
       'title' => 'Log in'
      ],
@@ -75,13 +79,18 @@ session_start();
             <a class="nav-link" href="index.php?s=productos">Productos</a>
           </li>
           <?php if($autenticacion->estaAutenticado()):?>
-            <?php if($autenticacion->getUsuario()->getRolFk() === 3)://si el usuario es entrenador?>
+            <?php if($autenticacion->getUsuario()->getRolFk() === 3)://si el usuario es un usuario comun?>
               <li class="nav-item">
                 <a class="nav-link" href="index.php?s=carrito">Carrito</a>
               </li>
             <?php else:?>
               <li class="nav-item">
                 <a class="nav-link" href="admin/index.php?s=dashboard">Administrador</a>
+              </li>
+            <?php endif;?>
+            <?php if($autenticacion->getUsuario()->getRolFk() === 2)://si el usuario es entrenador?>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php?s=perfil">Tu perfil</a>
               </li>
             <?php endif;?>
             <li class="nav-item">

@@ -506,6 +506,50 @@ label[for="maxp"], label[for="minp"]{
 .carrito_precio li:last-of-type{
   border-top: 1px solid var(--color-terciario);
 }
+/*----------------------------------------Mi perfil-----------------------------------------------*/
+.mi-perfil>div{
+  display: flex;
+  min-height: 70vh;
+  justify-content: center;
+  align-items: flex-start;
+}
+.mi-perfil>div>section{
+  border: 2px solid var(--color-secundario);
+  border-radius: 25px;
+  padding: 1em;
+  margin: 1em;
+  width: 50%;
+  min-height: 70vh;
+}
+.mi-perfil>div>section:first-of-type{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.mi-perfil>div>section:first-of-type .datos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10% 0;
+}
+.datos span{
+  padding: 1em;
+}
+.mi-perfil img{
+  width: 200px;
+}
+.mi-perfil li{
+  display: flex;
+  justify-content: space-between;
+  padding: .5em;
+  line-height: 36px;
+}
+.mi-perfil li:nth-child(even) {
+  /* Estilos para los elementos li pares */
+  background-color: var(--color-primario2);
+}
 /*----------------------------------------Footer-----------------------------------------------*/
 .contenedor{
   max-width: 1170px;
