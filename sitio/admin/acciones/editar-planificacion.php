@@ -19,7 +19,7 @@ $id = $_GET['id'];
 $rutina = (new Rutinas)->porId($id);
 
 $categoria_fk  = $_POST['categoria_fk'];
-$usuarios_fk = $_POST['usuarios_fk'];
+$usuarios_fk = $autenticado->getUsuario()->getIdUsuario();
 $titulo = $_POST['titulo'];
 $descripcion = $_POST['descripcion'];
 $sintesis = (isset($_POST['sinopsis']) && !(empty($_POST['sinopsis'])))?$_POST['sinopsis']:(new Rutinas)->crearSintesis($descripcion);
@@ -62,7 +62,7 @@ if (!empty($img['tmp_name'])) {
 }
 try {
     (new Rutinas)->editar($id,[
-        'usuarios_fk'=>1,
+        'usuarios_fk'=>$usuarios_fk,
         'categorias_fk'=>$categoria_fk,
         'titulo'     =>$titulo,
         'descripcion'=>$descripcion,

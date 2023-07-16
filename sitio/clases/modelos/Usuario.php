@@ -51,6 +51,35 @@ class Usuario extends Modelo{
             'roles_fk'    => $data['roles_fk'],
         ]);
     }
+
+    /**
+     * Edita un usuario en la tabla usuarios.
+     * 
+     * @paran int $id Clave primaria del Usuario a modificar.
+     * @param array $data Todos los datos necesarios para ejecutar el query.
+     *      $data debe contener: imagen, username y email.
+     */
+    public function editar(int $id, array $data):void{
+        $db = BD::getConexion();
+        $query = "UPDATE usuarios
+                  SET   imagen       = :imagen,
+                        username    = :username,
+                        email       = :email
+                  WHERE id_usuarios = :id_usuarios";
+        $stmt = $db->prepare($query);
+        $stmt->execute([
+            'imagen'      =>$data['imagen'],
+            'username' =>$data['username'],
+            'email'    =>$data['email'],
+            'id_usuarios'=>$id
+        ]);
+    }
+
+    /**
+     * Elimina un usuario en la tabla usuarios.
+     * 
+     * @param int $id Clave primaria del Usuario a eliminar
+     */
     public function eliminar(int $id): void
     {
         $db = BD::getConexion();

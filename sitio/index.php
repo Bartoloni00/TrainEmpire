@@ -26,6 +26,10 @@ session_start();
       'title' => 'Tu perfil',
       'requiereAutenticacion' => true
      ],
+     'editar-usuario' => [
+      'title' => 'Tu perfil',
+      'requiereAutenticacion' => true
+     ],
      'login'=>[
       'title' => 'Log in'
      ],

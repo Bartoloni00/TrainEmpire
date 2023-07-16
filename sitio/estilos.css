@@ -513,7 +513,7 @@ label[for="maxp"], label[for="minp"]{
   justify-content: center;
   align-items: flex-start;
 }
-.mi-perfil>div>section{
+.mi-perfil>div>section, .mi-perfil form{
   border: 2px solid var(--color-secundario);
   border-radius: 25px;
   padding: 1em;
@@ -539,6 +539,7 @@ label[for="maxp"], label[for="minp"]{
 }
 .mi-perfil img{
   width: 200px;
+  clip-path: circle(50%);
 }
 .mi-perfil li{
   display: flex;
