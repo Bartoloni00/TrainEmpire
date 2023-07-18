@@ -16,7 +16,9 @@ if ($autenticacion->getUsuario()->getRolFk() != 1) {
     <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th class="esconder-movile">Creador</th>
+            <?php if($autenticacion->getUsuario()->getRolFk() === 1):?>
+                <th class="esconder-movile">Creador</th>
+            <?php endif;?>
             <th>Título</th>
             <th class="esconder-tablet">Síntesis</th>
             <th class="esconder-tablet">Imagen</th>
@@ -27,7 +29,9 @@ if ($autenticacion->getUsuario()->getRolFk() != 1) {
     <tbody>
         <?php foreach ($rutinas as $rutina):?>
         <tr>
-            <td class="esconder-movile"><?=$rutina->getusuarios_fk();?></td>
+            <?php if($autenticacion->getUsuario()->getRolFk() === 1):?>
+                <td class="esconder-movile"><?=$rutina->getusuarios_fk();?></td>
+            <?php endif;?>
             <td><?=$rutina->getTitulo();?></td>
             <td class="esconder-tablet"><?=$rutina->getSintesis();?></td>
             <td class="esconder-tablet">

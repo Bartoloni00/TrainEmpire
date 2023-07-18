@@ -1,9 +1,10 @@
 <?php 
  $rutina = (new Rutinas)->porId($_GET['id']);
+ $categoria = (new Categorias)->porId($rutina->getCategoria());
  $autenticacion = (new Autenticacion);
 ?>
     <div class="detalles_producto">
-        <span><a href="index.php?s=productos">planificaciones</a> > <a href="index.php?s=productos&c=<?= $rutina->getCategoria();?>"><?= $rutina->getCategoria(); ?></a></span>
+        <span><a href="index.php?s=productos">planificaciones</a> > <a href="index.php?s=productos&c=<?= $rutina->getCategoria();?>"><?= $categoria->getNombre(); ?></a></span>
         <div>
         <img src="assets/productos/<?=$rutina->getImagen()?$rutina->getImagen():'defecto.jpg';?>" class="card-img-top" alt="planificacion de <?= $rutina->getTitulo(); ?>">
             <div>

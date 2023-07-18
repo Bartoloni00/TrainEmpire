@@ -18,7 +18,7 @@ if ($autenticacion->getUsuario()->getRolFk() != 1) {
                 <h3><b><?= $usuario->getUsername()??'No tienes nombre de usuario';?></b></h3>
                 <span><?=$usuario->getEmail();?></span>
             </div>
-            <a href="index.php?s=editar-usuario" class="btn btn-danger">Editar datos</a>
+            <a href="index.php?s=editar-usuario" class="btn-contacto">Editar datos</a>
         </section>
         <section>
             <h2>Mis productos</h2>
@@ -26,7 +26,7 @@ if ($autenticacion->getUsuario()->getRolFk() != 1) {
             <?php foreach ($rutinas as $rutina):?>
                 <li>
                     <?= $rutina->getTitulo();?>
-                    <a href="index.php?s=detalles&id=<?= $rutina->getId();?>" class="btn btn-danger">ver mas</a>
+                    <a href="index.php?s=detalles&id=<?= $rutina->getId();?>" class="btn-contacto">ver mas</a>
                 </li>
             <?php endforeach;?>
         </ul>

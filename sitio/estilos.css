@@ -130,47 +130,6 @@ nav ul{
     color: var(--color-secundario2);
     background-color: var(--color-primario);
   }
-  .redes-sociales{
-    border-top: 1px solid var(--color-terciario);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
-    list-style: none;
-  }
-  .redes-sociales li{
-    background-repeat: no-repeat;
-    margin: 5vh 1em 0 1em;
-    display: block;
-    height: 40px;
-    width: 40px;
-    text-indent: -5000em;
-  }
-  .redes-sociales li>a{
-    display: block;
-    height: 40px;
-    width: 40px;
-    text-indent: -5000em;
-  }
-  .redes-sociales li:nth-child(1){
-    background-image: url('assets/instagram.png');
-  }
-  .redes-sociales li:nth-child(2){
-    background-image: url('assets/tik-tok.png');
-  }
-  .redes-sociales li:nth-child(3){
-    background-image: url('assets/youtube.png');
-  }
-
   .nosotros, .rutinas, .entrenadores{
     margin-top: 10vh;
   }
@@ -232,12 +191,23 @@ section[class="rutinas"]{
 }
 .categorias a{
   text-decoration: none;
+  transition: all 1s;
 }
 .categorias figcaption{
   text-transform: capitalize;
   color: var(--color-terciario);
   text-align: center;
   font-weight: bolder;
+}
+.categorias figure{
+  overflow: hidden;
+}
+.img-categoria{
+  border-radius: 25px;
+}
+.categorias a:hover .img-categoria{
+  transform: scale(1.04);
+  transition: all 1s;
 }
 
 .entrenadores>div{
@@ -281,8 +251,7 @@ section[class="rutinas"]{
     max-width: 200px;
 }
 .entrenador img{
-  -webkit-clip-path: circle(60% at 50% 50%);
-          clip-path: circle(60% at 50% 50%);
+  border-radius: 25px;
 }
 .frecuentes>div>img{
   max-width: 50%;
@@ -330,15 +299,40 @@ section[class="productos"]>.card{
   margin-top: 5vh;
   -webkit-box-shadow: 6px 9px 15px 0px var(--color-terciario);
           box-shadow: 6px 9px 15px 0px var(--color-terciario);
+          overflow: hidden;
 }
 
 .card>img{
   -webkit-filter: grayscale(41%);
           filter: grayscale(41%);
+  transition: transform 1s;
 }
 .card:hover img{
   -webkit-filter: saturate(120%);
           filter: saturate(120%);
+  transform: scale(1.04);
+  transition: transform 1s;
+}
+.card a{
+  color: var(--color-terciario);
+  text-decoration: none;
+}
+.card a:hover{
+  color: var(--color-terciario);
+}
+/*----------------------------------------Detalles----------------------------------------------*/
+span a{
+  color: var(--color-primario);
+  background-color: var(--color-secundario2);
+  text-decoration: none;
+  text-transform: capitalize;
+  border: 1px solid var(--color-secundario2);
+  letter-spacing: 2px;
+  padding: 2px 5px;
+  border-radius: 25px;
+}
+span a:hover{
+  color: var(--color-primario);
 }
 .detalles_producto{
   margin-top: 3vw;
@@ -392,6 +386,7 @@ section[class="productos"]>.card{
 .detalles_producto>div>div>p{
   padding-top: 1vw;
 }
+/*----------------------------------------Filtros----------------------------------------------*/
 .filtros{
   background-color: var(--color-primario2);
   padding:3vw;
@@ -450,6 +445,7 @@ label[for="maxp"], label[for="minp"]{
   justify-content: center;
   align-items: center;
 }
+/*----------------------------------------Login-registro----------------------------------------------*/
 .contenedor-btn-login p{
   padding: 1em;
 }
@@ -521,7 +517,6 @@ label[for="maxp"], label[for="minp"]{
   min-height: 70vh;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 .mi-perfil>div>section{
   border: 2px solid var(--color-secundario);
@@ -689,6 +684,9 @@ font-size: .7em;
             flex-direction: column;
     margin-top: 2em;
   }
+  .buscador-container{
+    flex-wrap: wrap;
+  }
   .detalles_producto>div{
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -706,7 +704,12 @@ font-size: .7em;
  .carrito, .carrito_precio{
   width: 100%;
  }
-
+ .mi-perfil>div{
+  flex-wrap: wrap;
+ }
+ .mi-perfil>div>section{
+  width: 90%;
+ }
 }
 @media(max-width: 574px){
   .hero h1{

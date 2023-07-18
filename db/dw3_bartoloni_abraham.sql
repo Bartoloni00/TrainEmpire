@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2023 a las 21:39:57
+-- Tiempo de generación: 18-07-2023 a las 10:35:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -32,6 +32,14 @@ CREATE TABLE `carrito` (
   `fecha` date NOT NULL,
   `usuarios_fk` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `carrito`
+--
+
+INSERT INTO `carrito` (`id_carrito`, `fecha`, `usuarios_fk`) VALUES
+(1, '2023-07-13', 4),
+(2, '2023-07-15', 3);
 
 -- --------------------------------------------------------
 
@@ -100,18 +108,18 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_productos`, `usuarios_fk`, `titulo`, `descripcion`, `sintesis`, `imagen`, `precio`, `categorias_fk`) VALUES
-(19, 1, 'Goliath\'s Challenge', '¿Te atreves a enfrentarte al gigante? Con esta rutina de fuerza, estarás preparado para cualquier desafío que se te presente. Combina ejercicios de levantamiento de pesas con movimientos funcionales para desarrollar fuerza, resistencia y coordinación. ¡Atrévete a enfrentar tu propia versión del gigante y conviértete en un verdadero campeón!', '¿Te atreves a enfrentarte al gigante?', '20230610020036_fuerza1.JPG', 10789, 1),
-(20, 1, 'Hércules Challenge', '¿Quieres tener músculos de acero como el famoso héroe griego? Entonces esta rutina de fuerza es para ti. Con una combinación de ejercicios de levantamiento de pesas y entrenamiento de alta intensidad, te ayudará a construir músculos fuertes y definidos. ¡Prepárate para lucir como un dios griego!', '¿Quieres tener músculos de acero como el famoso héroe griego?', '20230610020119_fuerza2.JPG', 8432, 1),
-(21, 1, 'Warrior Strength', 'Esta rutina de fuerza te llevará al siguiente nivel. Diseñada para aquellos que buscan desafiar sus límites, consiste en una combinación de ejercicios de levantamiento de pesas y entrenamiento de alta intensidad. Prepárate para mejorar tu fuerza, resistencia y agilidad, y conviértete en un guerrero imparable.', 'Esta rutina de fuerza te llevará al siguiente nivel.', '20230610021221_fuerza3.jpg', 9367, 1),
-(22, 1, 'Endurance Warrior', 'Conviértete en un guerrero de resistencia con este entrenamiento de alta intensidad. Combina movimientos funcionales y cardiovasculares para mejorar tu resistencia y agilidad. Prepárate para sudar y superar tus límites con este desafío de resistencia.', 'Conviértete en un guerrero de resistencia con este entrenamiento de alta intensidad.', '20230611185143_resistencia1.jpg', 5543, 3),
-(23, 1, 'Spartan Sprint', 'Prepárate para una carrera de obstáculos con este entrenamiento de resistencia. Combina sprints de alta intensidad con movimientos funcionales para mejorar tu velocidad, agilidad y coordinación. ¡Supera los obstáculos y conviértete en un auténtico espartano!', 'Prepárate para una carrera de obstáculos con este entrenamiento de resistencia.', '20230611185231_resistencia2.jpg', 12000, 3),
-(24, 1, 'Ironman Challenge', '¿Quieres ser un verdadero Ironman? Este entrenamiento de resistencia es para ti. Combina carreras de larga distancia con movimientos funcionales para mejorar tu resistencia, fuerza y agilidad. Prepárate para enfrentar el desafío de tu vida y cruzar la línea de meta como un verdadero campeón.', '¿Quieres ser un verdadero Ironman?', '20230611185415_resistencia3.jpg', 6554, 3),
-(25, 1, 'Plan de alimentación de 21 días', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud. Incluye una combinación equilibrada de proteínas, carbohidratos y grasas saludables para mantenerte satisfecho y lleno de energía. ¡Empieza hoy mismo y transforma tu cuerpo en 21 días!', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud.', '20230611190801_nutricion1.jpg', 9021, 2),
-(26, 1, 'Plan de alimentación para deportistas', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo. Incluye una combinación de alimentos ricos en proteínas, carbohidratos complejos y grasas saludables para optimizar el rendimiento físico y mental. ¡Maximiza tu potencial con este plan de alimentación para deportistas!', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo.', '20230611191124_nutricion2.jpg', 7210, 2),
-(27, 1, 'Plan de alimentación vegetariana', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas. Incluye una combinación equilibrada de proteínas vegetales, carbohidratos complejos y grasas saludables para mantener una nutrición adecuada. ¡Empieza hoy mismo y experimenta los beneficios de una dieta vegetariana!', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas.', '20230611191206_nutricion3.jpg', 5999, 2),
-(28, 1, 'Yoga para principiantes', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria. Incluye una secuencia de posturas básicas y técnicas de respiración para mejorar la flexibilidad, el equilibrio y la relajación. ¡Empieza hoy mismo y descubre los beneficios del yoga!', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria.', '20230611193500_yoga1.jpg', 11345, 4),
-(29, 1, 'Yoga para el estrés', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad. Incluye una secuencia de posturas y técnicas de respiración para mejorar la relajación y la concentración. ¡Libera tu mente y tu cuerpo del estrés con este plan de yoga!', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad.', '20230611193648_yoga2.jpg', 10678, 4),
-(30, 1, 'Meditación para la paz interior', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria. Incluye técnicas de meditación guiada y ejercicios de respiración para mejorar la concentración y la relajación. ¡Empieza hoy mismo y descubre el poder de la meditación!', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria.', '20230611193733_yoga3.jpg', 8199, 4);
+(19, 3, 'Goliath\'s Challenge', '¿Te atreves a enfrentarte al gigante? Con esta rutina de fuerza, estarás preparado para cualquier desafío que se te presente. Combina ejercicios de levantamiento de pesas con movimientos funcionales para desarrollar fuerza, resistencia y coordinación. ¡Atrévete a enfrentar tu propia versión del gigante y conviértete en un verdadero campeón!', '¿Te atreves a enfrentarte al gigante?', '20230610020036_fuerza1.JPG', 10789, 1),
+(20, 3, 'Hércules Challenge', '¿Quieres tener músculos de acero como el famoso héroe griego? Entonces esta rutina de fuerza es para ti. Con una combinación de ejercicios de levantamiento de pesas y entrenamiento de alta intensidad, te ayudará a construir músculos fuertes y definidos. ¡Prepárate para lucir como un dios griego!', '¿Quieres tener músculos de acero como el famoso héroe griego?', '20230610020119_fuerza2.JPG', 8432, 1),
+(21, 3, 'Warrior Strength', 'Esta rutina de fuerza te llevará al siguiente nivel. Diseñada para aquellos que buscan desafiar sus límites, consiste en una combinación de ejercicios de levantamiento de pesas y entrenamiento de alta intensidad. Prepárate para mejorar tu fuerza, resistencia y agilidad, y conviértete en un guerrero imparable.', 'Esta rutina de fuerza te llevará al siguiente nivel.', '20230610021221_fuerza3.jpg', 9367, 1),
+(22, 3, 'Endurance Warrior', 'Conviértete en un guerrero de resistencia con este entrenamiento de alta intensidad. Combina movimientos funcionales y cardiovasculares para mejorar tu resistencia y agilidad. Prepárate para sudar y superar tus límites con este desafío de resistencia.', 'Conviértete en un guerrero de resistencia con este entrenamiento de alta intensidad.', '20230611185143_resistencia1.jpg', 5543, 3),
+(23, 3, 'Spartan Sprint', 'Prepárate para una carrera de obstáculos con este entrenamiento de resistencia. Combina sprints de alta intensidad con movimientos funcionales para mejorar tu velocidad, agilidad y coordinación. ¡Supera los obstáculos y conviértete en un auténtico espartano!', 'Prepárate para una carrera de obstáculos con este entrenamiento de resistencia.', '20230611185231_resistencia2.jpg', 12000, 3),
+(24, 3, 'Ironman Challenge', '¿Quieres ser un verdadero Ironman? Este entrenamiento de resistencia es para ti. Combina carreras de larga distancia con movimientos funcionales para mejorar tu resistencia, fuerza y agilidad. Prepárate para enfrentar el desafío de tu vida y cruzar la línea de meta como un verdadero campeón.', '¿Quieres ser un verdadero Ironman?', '20230611185415_resistencia3.jpg', 6554, 3),
+(25, 3, 'Plan de alimentación de 21 días', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud. Incluye una combinación equilibrada de proteínas, carbohidratos y grasas saludables para mantenerte satisfecho y lleno de energía. ¡Empieza hoy mismo y transforma tu cuerpo en 21 días!', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud.', '20230611190801_nutricion1.jpg', 9021, 2),
+(26, 3, 'Plan de alimentación para deportistas', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo. Incluye una combinación de alimentos ricos en proteínas, carbohidratos complejos y grasas saludables para optimizar el rendimiento físico y mental. ¡Maximiza tu potencial con este plan de alimentación para deportistas!', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo.', '20230611191124_nutricion2.jpg', 7210, 2),
+(27, 3, 'Plan de alimentación vegetariana', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas. Incluye una combinación equilibrada de proteínas vegetales, carbohidratos complejos y grasas saludables para mantener una nutrición adecuada. ¡Empieza hoy mismo y experimenta los beneficios de una dieta vegetariana!', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas.', '20230611191206_nutricion3.jpg', 5999, 2),
+(28, 3, 'Yoga para principiantes', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria. Incluye una secuencia de posturas básicas y técnicas de respiración para mejorar la flexibilidad, el equilibrio y la relajación. ¡Empieza hoy mismo y descubre los beneficios del yoga!', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria.', '20230611193500_yoga1.jpg', 11345, 4),
+(29, 3, 'Yoga para el estrés', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad. Incluye una secuencia de posturas y técnicas de respiración para mejorar la relajación y la concentración. ¡Libera tu mente y tu cuerpo del estrés con este plan de yoga!', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad.', '20230611193648_yoga2.jpg', 10678, 4),
+(30, 3, 'Meditación para la paz interior', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria. Incluye técnicas de meditación guiada y ejercicios de respiración para mejorar la concentración y la relajación. ¡Empieza hoy mismo y descubre el poder de la meditación!', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria.', '20230611193733_yoga3.jpg', 8199, 4);
 
 -- --------------------------------------------------------
 
@@ -125,6 +133,14 @@ CREATE TABLE `producto_en_carrito` (
   `productos_fk` int(10) UNSIGNED NOT NULL,
   `carrito_fk` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `producto_en_carrito`
+--
+
+INSERT INTO `producto_en_carrito` (`id_producto_en_carrito`, `cantidad`, `productos_fk`, `carrito_fk`) VALUES
+(6, 1, 27, 1),
+(7, 1, 19, 2);
 
 -- --------------------------------------------------------
 
@@ -170,15 +186,18 @@ CREATE TABLE `usuarios` (
   `roles_fk` int(10) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `username` varchar(45) DEFAULT NULL
+  `username` varchar(45) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuarios`, `roles_fk`, `email`, `password`, `username`) VALUES
-(1, 1, 'abraham@prueba.com', '$2y$10$WM7jhu0PD9rH/ESErV4iHuqnSl.jmDkba9cE8uBq1zy9i5ywqxPZe', 'Bartoloni Abraham');
+INSERT INTO `usuarios` (`id_usuarios`, `roles_fk`, `email`, `password`, `username`, `imagen`) VALUES
+(1, 1, 'abraham@prueba.com', '$2y$10$WM7jhu0PD9rH/ESErV4iHuqnSl.jmDkba9cE8uBq1zy9i5ywqxPZe', 'Bartoloni Abraham', NULL),
+(3, 2, 'entrenador@prueba.com', '$2y$10$16EzvWa4FypQIolUGyq.A.YHb6YPen8VSG/cVH1yWTFAsph2zFk9O', 'Lucas Beltran', '20230716232341_entrenador1.jpg'),
+(4, 3, 'usuario@prueba.com', '$2y$10$UKQdv0ovdPBgywArfaYjNOIdFI287QprfWHXrxvV07odGMjOLxIwi', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -256,13 +275,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `carrito`
 --
 ALTER TABLE `carrito`
-  MODIFY `id_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categorias` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categorias` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -280,13 +299,13 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_productos` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_en_carrito`
 --
 ALTER TABLE `producto_en_carrito`
-  MODIFY `id_producto_en_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto_en_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_en_pedido`
@@ -304,7 +323,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuarios` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

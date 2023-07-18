@@ -77,34 +77,34 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php?s=home">Home</a>
+            <a class="nav-link active" aria-current="page" href="index.php?s=home"><i class="fa-solid fa-house-chimney"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php?s=productos">Productos</a>
+            <a class="nav-link" href="index.php?s=productos"><i class="fa-solid fa-store"></i> Productos</a>
           </li>
           <?php if($autenticacion->estaAutenticado()):?>
             <?php if($autenticacion->getUsuario()->getRolFk() === 3)://si el usuario es un usuario comun?>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?s=carrito">Carrito</a>
+                <a class="nav-link" href="index.php?s=carrito"><i class="fa-solid fa-cart-shopping"></i> Carrito</a>
               </li>
             <?php else:?>
               <li class="nav-item">
-                <a class="nav-link" href="admin/index.php?s=dashboard">Administrador</a>
+                <a class="nav-link" href="admin/index.php?s=dashboard"><i class="fa-solid fa-screwdriver-wrench"></i> Administrador</a>
               </li>
             <?php endif;?>
             <?php if($autenticacion->getUsuario()->getRolFk() === 2)://si el usuario es entrenador?>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?s=perfil">Tu perfil</a>
+                <a class="nav-link" href="index.php?s=perfil">               <i class="fa-solid fa-address-card"></i> Tu perfil</a>
               </li>
             <?php endif;?>
             <li class="nav-item">
               <form action="acciones/cerrar-sesion.php" method="post">
-                <button type="submit" class="nav-link"><?= $autenticacion->getUsuario()->getUsername()?$autenticacion->getUsuario()->getUsername():$autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
+                <button type="submit" class="nav-link"><i class="fa-solid fa-right-from-bracket"></i> <?= $autenticacion->getUsuario()->getUsername()?$autenticacion->getUsuario()->getUsername():$autenticacion->getUsuario()->getEmail();?> (Cerrar Sesión)</button>
               </form>
             </li>
           <?php else:?>
             <li class="nav-item">
-              <a class="nav-link" href="index.php?s=login">Iniciar sesion</a>
+              <a class="nav-link" href="index.php?s=login"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesion</a>
             </li>
           <?php endif;?>
         </ul>
@@ -181,6 +181,7 @@ session_start();
       </p>
     </div>
   </footer>
+    <script src="https://kit.fontawesome.com/d95904715c.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <div>
         <h1>TrainEmpire</h1>
         <p>"Convierte tu cuerpo en un imperio"</p>
-        <a href="Contactanos" class="btn-contacto">Contactanos</a>
+        <a href="index.php?s=productos" class="btn-contacto">Ver rutinas</a>
     </div>
     <img src="assets/homePrincipal.svg" alt="ilustracion de comunidad de gym">
     </section>
@@ -53,8 +53,8 @@
                     <a href="index.php?s=productos&c=<?= $categoria->getId(); ?>">
                         <figure>
                             <picture>
-                                <source srcset="assets/categorias/<?= $categoria->getNombre(); ?>Mobile.jpg" type="image/jpg" media="(max-width: 768px)">
-                                <img src="assets/categorias/<?= $categoria->getNombre(); ?>.jpg" alt="<?= $categoria->getNombre(); ?>">
+                                <source srcset="assets/categorias/<?= $categoria->getNombre(); ?>Mobile.jpg" type="image/jpg" media="(max-width: 768px)" class="img-categoria">
+                                <img src="assets/categorias/<?= $categoria->getNombre(); ?>.jpg" alt="Imagen representativa de la categoria <?= $categoria->getNombre(); ?>" class="img-categoria">
                             </picture>
                             <figcaption><?= $categoria->getNombre(); ?></figcaption>
                         </figure>

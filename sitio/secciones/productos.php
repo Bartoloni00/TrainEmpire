@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="div-precios">
-                        <span>Precio:</span>
+                        <span>Establecer rango de precios:</span>
                         <div>
                             <label for="minp">Precio minimo</label>
                             <input 
@@ -53,22 +53,24 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Filtrar</button>
+                <button type="submit" class="btn-contacto">Filtrar</button>
             </form>   
     <section class="productos">
         <?php foreach ($rutinas as $rutina): ?>
             <article class="card">
-            <img src="assets/productos/<?=$rutina->getImagen()?$rutina->getImagen():'defecto.jpg';?>" class="card-img-top" alt="planificacion de <?= $rutina->getTitulo(); ?>">
-            <div class="card-body">
-                <h2 class="card-title"><?=$rutina->getTitulo(); ?></h2>
-                <p class="card-text"><?= $rutina->getSintesis();?></p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">$ <?=$rutina->getPrecio(); ?></li>
-            </ul>
-            <div class="card-body">
-                <a href="index.php?s=detalles&id=<?= $rutina->getId();?>" class="btn btn-danger">ver mas</a>
-            </div>
+            <a href="index.php?s=detalles&id=<?= $rutina->getId();?>">
+                <img src="assets/productos/<?=$rutina->getImagen()?$rutina->getImagen():'defecto.jpg';?>" class="card-img-top" alt="planificacion de <?= $rutina->getTitulo(); ?>">
+                <div class="card-body">
+                    <h2 class="card-title"><?=$rutina->getTitulo(); ?></h2>
+                    <p class="card-text"><?= $rutina->getSintesis();?></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">$ <?=$rutina->getPrecio(); ?></li>
+                </ul>
+            </a>
+            <!-- <div class="card-body">
+                <a href="index.php?s=detalles&id=<?= $rutina->getId();?>" class="btn-contacto">ver mas</a>
+            </div> -->
             </article>
         <?php endforeach; ?>
     </section>
