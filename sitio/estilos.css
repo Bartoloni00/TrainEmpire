@@ -113,6 +113,7 @@ nav ul{
     max-height: 80vh;
   }
   .btn-contacto{
+    border: 2px solid rgba(255,255,255,0.0);
     display: inline;
     color: var(--color-primario);
     padding: 10px;
@@ -120,6 +121,14 @@ nav ul{
     -webkit-border-radius: 10px;
             border-radius: 10px;
     margin-bottom: 4vh;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all .5s;
+  }
+  .btn-contacto:hover{
+    border: 2px solid var(--color-secundario2);
+    color: var(--color-secundario2);
+    background-color: var(--color-primario);
   }
   .redes-sociales{
     border-top: 1px solid var(--color-terciario);
@@ -512,13 +521,15 @@ label[for="maxp"], label[for="minp"]{
   min-height: 70vh;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
-.mi-perfil>div>section, .mi-perfil form{
+.mi-perfil>div>section{
   border: 2px solid var(--color-secundario);
   border-radius: 25px;
   padding: 1em;
   margin: 1em;
   width: 50%;
+  min-width: 340px;
   min-height: 70vh;
 }
 .mi-perfil>div>section:first-of-type{
@@ -546,6 +557,7 @@ label[for="maxp"], label[for="minp"]{
   justify-content: space-between;
   padding: .5em;
   line-height: 36px;
+
 }
 .mi-perfil li:nth-child(even) {
   /* Estilos para los elementos li pares */
@@ -712,5 +724,8 @@ font-size: .7em;
 }
 .carrito .tarjeta_carrito div:last-of-type {
   text-align: center;
+}
+.mi-perfil>div>section{
+  width: 90%;
 }
 }
