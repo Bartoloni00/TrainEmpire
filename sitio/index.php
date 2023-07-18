@@ -147,9 +147,9 @@ session_start();
         <div class="footer-col">
           <h3>Legal</h3>
           <ul>
-            <li><a href="#">Terminos y condiciones</a></li>
+            <li><a href="index.php?s=contacto&c=tyc">Terminos y condiciones</a></li>
             <li><a href="#">Politica de privacidad</a></li>
-            <li><a href="#">Defensa al consumidor</a></li>
+            <li><a href="index.php?s=contacto&c=dac">Defensa al consumidor</a></li>
             <li><a href="#">Opciones de pago</a></li>
           </ul>
         </div>
@@ -164,10 +164,10 @@ session_start();
         <div class="footer-col">
           <h3>Redes sociales</h3>
           <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a  href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a  href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a  href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
       </div>
