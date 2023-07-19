@@ -1,17 +1,21 @@
 <?php 
- //$entrenadores = (new Entrenadores)->todos();
-
-    $categorias = (new Categorias)->todo();
-
- $rutinas = (new Rutinas)->todo();
-
-    //$entrenador = isset($_GET['e']) ? $_GET['e'] : '';//entrenador
     $categoriaGet = $_GET['c']??'';//categoria
     $precio_min = isset($_GET['minp']) ? intval($_GET['minp']) : 0;//precio minimo
     $precio_max = isset($_GET['maxp']) ? intval($_GET['maxp']) : PHP_INT_MAX;//precio maximo
-
+    $paginaInicial = $_GET['p'] ?? 1;
+    
+    $categorias = (new Categorias)->todo();
+    $busqueda = $categoriaGet? [
+        ['categorias_fk','=',$categoriaGet],
+    ]:[];
+       
+    [$rutinas,$paginacion,$totalData] = (new Rutinas)->todoPaginado($busqueda,9,$paginaInicial);
+        //print_r((new Rutinas)->todoPaginado($busqueda,6,$paginaInicial));
+    //print_r($totalData);
     $filtro = new Filtro;
-    $rutinas = $filtro->filtradoPorCategoria($rutinas,$categoriaGet);
+    // if ($categoriaGet !== '') {
+    //     $rutinas = (new Rutinas)->filtradoPorCategoria($categoriaGet);
+    // }
     //$rutinas = $filtro->filtradoPorEntrenador($rutinas,$entrenador);
     $rutinas = $filtro->filtradoPorPrecio($rutinas,$precio_min,$precio_max);
 ?>
@@ -74,3 +78,29 @@
             </article>
         <?php endforeach; ?>
     </section>
+    <nav class="paginador">
+        <p>Páginas</p>
+        <ul class="paginador-lista">
+            <?php if($paginacion['pagina'] > 1):?>
+                <li><a href="index.php?s=productos&p=1"><i class="fa-solid fa-backward-fast"></i></a></li>
+                <li><a href="index.php?s=productos&p=<?= ($paginacion['pagina'] - 1);?>"><i class="fa-solid fa-arrow-left"></i></a></li>
+            <?php else:?>
+                <li class="disable"><i class="fa-solid fa-backward-fast"></i></li>
+                <li class="disable"><i class="fa-solid fa-arrow-left"></i></li>
+            <?php endif;?>
+            <?php for($i = 1; $i <= $paginacion['totalPaginas']; $i++): ?>
+                <?php if($i == $paginacion['pagina']):?>
+                    <li class="pag-actual"><span><?= $i;?></span></li>
+                <?php else:?>
+                    <li><a href="index.php?s=productos&p=<?= $i;?>"><?= $i;?></a></li>
+                <?php endif;?>
+            <?php endfor;?>
+            <?php if($paginacion['pagina'] < $paginacion['totalPaginas']):?>
+                <li><a href="index.php?s=productos&p=<?= ($paginacion['pagina'] + 1);?>"><i class="fa-solid fa-arrow-right"></i></a></li>
+                <li><a href="index.php?s=productos&p=<?= $paginacion['totalPaginas'];?>"><i class="fa-solid fa-forward-fast"></i></a></li>
+            <?php else: ?>
+                <li class="disable">=></li>
+                <li class="disable"><i class="fa-solid fa-forward-fast"></i></li>
+            <?php endif;?>
+        </ul>
+    </nav>

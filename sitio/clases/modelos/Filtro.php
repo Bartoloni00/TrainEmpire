@@ -24,6 +24,7 @@ class Filtro {
             return $array;
         }
     }
+   
 
     /**
      * Filtra un array de objetos por entrenador.

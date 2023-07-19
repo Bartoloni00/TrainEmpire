@@ -102,7 +102,72 @@ class Rutinas extends Modelo{
         return $resumen;
     }
 
-    public function setSintesis($sintesis){
+    public function filtradoPorCategoria(int $categoria_fk): array {
+        $bd = BD::getConexion();
+        $query = "SELECT * FROM productos WHERE categorias_fk = ?";
+        $stmt = $bd->prepare($query);
+        $stmt->execute([$categoria_fk]);
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS,static::class);
+         return $stmt->fetchAll();
+     }
+
+    public function todoPaginado(array $busqueda = [],int $porPagina = 10, int $pagina = 1){
+        $paginacion = [
+            'porPagina' => $porPagina,
+            'pagina' => $pagina,
+            'offset' => $porPagina * ($pagina - 1),
+        ];
+
+        $bd = BD::getConexion();
+        $query = "SELECT * FROM productos";
+        $queryConstraints = "";
+        $queryParams = [];
+        if(count($busqueda) > 0) {
+            $whereConditions = [];
+            foreach($busqueda as $busquedaDatos) {
+                $whereConditions[] = $busquedaDatos[0] . ' ' . $busquedaDatos[1] . ' ?';
+
+                $queryParams[] = $busquedaDatos[2];
+            }
+
+            $queryConstraints .= " WHERE " . implode(' AND ', $whereConditions);
+        }
+        $query .= $queryConstraints . " LIMIT " . $paginacion['porPagina'] . " OFFSET " . $paginacion['offset'];
+
+        $stmt = $bd->prepare($query);
+        $stmt->execute($queryParams);
+
+        $rutinas = [];
+        while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Crear un nuevo elemento de rutina y asignar los valores del registro
+            $rutina = new Rutinas();
+            $rutina->setId($registro['id_productos']);
+            $rutina->setTitulo($registro['titulo']);
+            $rutina->setUsuarios_fk($registro['usuarios_fk']);
+            $rutina->setDescripcion($registro['descripcion']);
+            $rutina->setSintesis($registro['sintesis']);
+            $rutina->setImagen($registro['imagen']);
+            $rutina->setPrecio($registro['precio']);
+            $rutina->setCategoria($registro['categorias_fk']);
+            // Asignar otros valores del registro a propiedades de la clase Rutina
+            
+            // Agregar la rutina al array $rutinas
+            $rutinas[] = $rutina;
+        }
+        //$queryTotal = "SELECT COUNT(*) AS total FROM (SELECT 1 " . $queryConstraints . ") AS resultset";
+        $queryTotal = "SELECT COUNT(*) AS total FROM productos" . $queryConstraints;
+        $stmtTotal = $bd->prepare($queryTotal);
+        $stmtTotal->execute($queryParams);
+        $totalData = $stmtTotal->fetch(PDO::FETCH_ASSOC);
+
+        $paginacion['totalRegistros'] = $totalData['total'];
+        $paginacion['totalPaginas'] = ceil($totalData['total'] / $paginacion['porPagina']);
+
+        return [$rutinas, $paginacion, $totalData];
+    }
+    
+    public function setSintesis(string $sintesis){
         $this->sintesis = $sintesis;
     }
 
@@ -114,26 +179,54 @@ class Rutinas extends Modelo{
         return $this->id_productos;
     }
 
+    public function setId(int $id_productos){
+        $this->id_productos = $id_productos;
+    }
+    
+    public function setTitulo($titulo) {
+        $this->titulo = $titulo;
+    }
+
     public function getTitulo(): string{
         return $this->titulo;
+    }
+
+    public function setDescripcion($descripcion) {
+        $this->descripcion = $descripcion;
     }
 
     public function getDescripcion(): string{
         return $this->descripcion;
     }
 
+    public function setUsuarios_fk($usuarios_fk) {
+        $this->usuarios_fk = $usuarios_fk;
+    }
+
     public function getusuarios_fk(): string{
         return $this->usuarios_fk;
+    }
+
+    public function setPrecio($precio) {
+        $this->precio = $precio;
     }
 
     public function getPrecio(): int{
         return $this->precio;
     }
 
+    public function setImagen($imagen) {
+        $this->imagen = $imagen;
+    }
+
     public function getImagen(): ?string{
         return $this->imagen;
     }
     
+    public function setCategoria($categorias_fk) {
+        $this->categorias_fk = $categorias_fk;
+    }
+
     public function getCategoria(): string{
         return $this->categorias_fk;
     }

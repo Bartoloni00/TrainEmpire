@@ -56,7 +56,7 @@ body {
 main{
   min-height: 43vh;
 }
-nav span{
+nav>.container-fluid>span{
   margin-left: 5vw;
   display: block;
   height: 50px;
@@ -360,6 +360,9 @@ span a:hover{
   -webkit-clip-path: ellipse(70% 70% at 50% 50%);
           clip-path: ellipse(70% 70% at 50% 50%);
 }
+.detalles_producto>div{
+  margin: 2em 0;
+}
 .detalles_producto>div>div{
   padding: 1vw;
   display: -webkit-box;
@@ -487,6 +490,7 @@ label[for="maxp"], label[for="minp"]{
 .carrito img{
   width: 100%;
   clip-path: ellipse(70% 70% at 50% 50%);
+  max-width: 255px;
 }
 .carrito .tarjeta_carrito div:last-of-type{
   text-align: right;
@@ -554,9 +558,55 @@ label[for="maxp"], label[for="minp"]{
   line-height: 36px;
 
 }
+.mi-perfil>div>section:last-of-type .btn-contacto{
+  padding: 2px;
+  margin-bottom: 0;
+}
 .mi-perfil li:nth-child(even) {
   /* Estilos para los elementos li pares */
   background-color: var(--color-primario2);
+}
+/*----------------------------------------Paginador-----------------------------------------------*/
+.paginador{
+  margin: 5vh 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.paginador-lista{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginador-lista li{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginador-lista li:hover{
+  border: 1px solid var(--color-secundario2);
+}
+.paginador-lista li a{
+  width: 50px;
+  height: 50px;
+  color: var(--color-terciario);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginador-lista .pag-actual{
+  background-color: var(--color-secundario2);
+  color: var(--color-primario2);
+}
+.paginador-lista .disable{
+  cursor: not-allowed;
 }
 /*----------------------------------------Footer-----------------------------------------------*/
 .contenedor{

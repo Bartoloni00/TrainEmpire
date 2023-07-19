@@ -15,6 +15,11 @@ $id_usuarios = $autenticacion->getUsuario()->getIdUsuario();
 $id_producto = $_POST['id_producto'];
 
 try {
+    if ($autenticacion->getUsuario()->getRolFk() !== 3) {
+        $_SESSION['mensajeError'] = 'Esta cuenta no puede poseer un carrito de compras';
+        header('Location: ../index.php?s=detalles&id='. $id_producto);
+        exit;
+    }
     if ($carrito->usuarioTieneCarrito($id_usuarios)) {
         $id_carrito = $carrito->encontrarCarritoDelUsuario($id_usuarios);
         if (!$carrito->productoEstaEnCarrito([
