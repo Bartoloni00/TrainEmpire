@@ -1,4 +1,7 @@
 <?php
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
+
 session_start();
 require_once __DIR__ . '/../../bootstrap/autoload.php';
 
@@ -50,8 +53,15 @@ if (count($errores) > 0) {
 
 if (!empty($img['tmp_name'])) {
     $nombreImagen = date('YmdHis').'_'.$img['name'];
-    move_uploaded_file($img['tmp_name'],__DIR__.'/../../assets/productos/'.$nombreImagen);
-    $img = $nombreImagen;
+    //move_uploaded_file($img['tmp_name'],__DIR__.'/../../assets/productos/'.$nombreImagen);
+    //Optimizamos las imagenes de las rutinas para que midas 544x306 con Intervention Image
+    $imagenEditada = Image::make($img['tmp_name']);//abro la imagen para luego editarla
+    // $imagenEditada->resize(544,306, function ($constraint) {
+    //     $constraint->aspectRatio();
+    // });
+    $imagenEditada->fit(544,306);//recorto y redimenciono la imagen
+    $imagenEditada->save(__DIR__.'/../../assets/productos/'.$nombreImagen);//guardo la imagen
+    $img = $nombreImagen;//asigno el nombre de la imagen para que sea guardado en la BD
 }else{
     $img = null;
 }

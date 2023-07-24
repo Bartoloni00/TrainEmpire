@@ -1,4 +1,6 @@
 <?php
+// import the Intervention Image Manager Class
+use Intervention\Image\ImageManagerStatic as Image;
 
 session_start();
 require_once __DIR__ . '/../bootstrap/autoload.php';
@@ -31,7 +33,10 @@ if (count($errores) > 0) {
 
 if (!empty($img['tmp_name'])) {
     $nombreImagen = date('YmdHis').'_'.$img['name'];
-    move_uploaded_file($img['tmp_name'],__DIR__.'/../assets/entrenadores/'.$nombreImagen);
+    $imagenEditada = Image::make($img['tmp_name']);//abro la imagen para luego editarla
+    $imagenEditada->fit(200,200);//recorto y redimenciono la imagen
+    $imagenEditada->save(__DIR__.'/../assets/entrenadores/'.$nombreImagen);//guardo la imagen
+    $img = $nombreImagen;//asigno el nombre de la imagen para que sea guardado en la BD
     $img = $nombreImagen;
 }else{
     $img = null;
@@ -43,7 +48,7 @@ try {
         'email'=>$email
     ]);
     if (isset($nombreImagen)&&$usuario->getImagen() !== null) {
-        unlink(__DIR__.'/../../assets/entrenadores/'.$usuario->getImagen());
+        unlink(__DIR__.'/../assets/entrenadores/'.$usuario->getImagen());
     }
     $_SESSION['mensajeExito'] = 'Tu usuario fue editado con exito.';
     header('Location: ../index.php?s=perfil');
