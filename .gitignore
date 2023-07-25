@@ -1,0 +1,12 @@
+
+sitio/vendor/guzzlehttp/psr7/
+<<<<<<< Updated upstream
+sitio/vendor/intervention/image/
+sitio/vendor/ralouphie/getallheaders/
+sitio/vendor/psr/http-factory/
+=======
+sitio/vendor/psr/http-factory/
+sitio/vendor/ralouphie/getallheaders/
+sitio/vendor/intervention/image/
+>>>>>>> Stashed changes
+sitio/vendor/psr/http-message/
