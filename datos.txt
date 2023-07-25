@@ -1,6 +1,6 @@
 Carrera: Diseño y programacion Web
 Materia: Programacion 2
-Cuatrimestre: 4to
+Cuatrimestre: 3er
 Año: 2023
 Turno: tarde virtual
 Comision: B

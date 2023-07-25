@@ -142,6 +142,10 @@ nav ul{
   h2{
     font-size: var(--tamano-fuente-media);
     text-align: center;
+    font-family: 'Bruno Ace SC',Arial, Helvetica, sans-serif
+  }
+  h3{
+    font-family: 'Bruno Ace SC',Arial, Helvetica, sans-serif
   }
   .nosotros>div>img{
     max-width: 50%;
@@ -191,7 +195,6 @@ section[class="rutinas"]{
 }
 .categorias a{
   text-decoration: none;
-  transition: all 1s;
 }
 .categorias figcaption{
   text-transform: capitalize;
@@ -203,11 +206,12 @@ section[class="rutinas"]{
   overflow: hidden;
 }
 .img-categoria{
-  border-radius: 25px;
+  border-radius: 14px;
+  transition: transform 1s ease;
 }
 .categorias a:hover .img-categoria{
+  border-radius: 14px;
   transform: scale(1.04);
-  transition: all 1s;
 }
 
 .entrenadores>div{
@@ -226,6 +230,9 @@ section[class="rutinas"]{
     -webkit-align-items: flex-start;
         -ms-flex-align: start;
             align-items: flex-start;
+}
+.entrenadores h3{
+  font-size: 1.2em;
 }
 .entrenador{
     margin: 5px;
@@ -251,7 +258,7 @@ section[class="rutinas"]{
     max-width: 200px;
 }
 .entrenador img{
-  border-radius: 25px;
+  border-radius: 14px;
 }
 .frecuentes>div>img{
   max-width: 50%;
@@ -274,6 +281,9 @@ section[class="rutinas"]{
   -webkit-flex-direction: row-reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+}
+.frecuentes h3{
+  font-family: 'Roboto-Regular',Arial, Helvetica, sans-serif;
 }
 .productos-h2{
   margin-top: 5vh;
@@ -305,13 +315,12 @@ section[class="productos"]>.card{
 .card>img{
   -webkit-filter: grayscale(41%);
           filter: grayscale(41%);
-  transition: transform 1s;
 }
 .card:hover img{
   -webkit-filter: saturate(120%);
           filter: saturate(120%);
   transform: scale(1.04);
-  transition: transform 1s;
+  transition: all 1s ease;
 }
 .card a{
   color: var(--color-terciario);
@@ -392,7 +401,9 @@ span a:hover{
 /*----------------------------------------Filtros----------------------------------------------*/
 .filtros{
   background-color: var(--color-primario2);
-  padding:3vw;
+  padding:1vh;
+  padding-top: 2vh;
+  border-radius: 14px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

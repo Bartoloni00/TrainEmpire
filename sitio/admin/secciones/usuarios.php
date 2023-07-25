@@ -15,6 +15,7 @@ $rol = (new Roles);
     </thead>
     <tbody>
         <?php foreach ($usuarios as $usuario):?>
+            <?php if ($usuario->getEmail() !== (new Autenticacion)->getUsuario()->getEmail()):?>
         <tr>
             <td class="esconder-movile"><?=$usuario->getEmail();?></td>
             <td><?=$rol->porId($usuario->getRolFk())->getNombre();?></td>
@@ -23,6 +24,7 @@ $rol = (new Roles);
                 <a href="index.php?s=eliminar-usuario&id=<?= $usuario->getIdUsuario();?>" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
+            <?php endif;?>
         <?php endforeach;?>
     </tbody>
 </table>

@@ -66,10 +66,10 @@
                 <img src="assets/productos/<?=$rutina->getImagen()?$rutina->getImagen():'defecto.jpg';?>" class="card-img-top" alt="planificacion de <?= $rutina->getTitulo(); ?>">
                 <div class="card-body">
                     <h2 class="card-title"><?=$rutina->getTitulo(); ?></h2>
-                    <p class="card-text"><?= $rutina->getSintesis();?></p>
+                    <p class="card-text text-center"><?= $rutina->getSintesis();?></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">$ <?=$rutina->getPrecio(); ?></li>
+                    <li class="list-group-item text-center">$ <?=$rutina->getPrecio(); ?></li>
                 </ul>
             </a>
             <!-- <div class="card-body">

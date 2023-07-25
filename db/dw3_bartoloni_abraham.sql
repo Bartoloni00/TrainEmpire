@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2023 a las 10:35:14
+-- Tiempo de generación: 26-07-2023 a las 00:30:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -117,9 +117,10 @@ INSERT INTO `productos` (`id_productos`, `usuarios_fk`, `titulo`, `descripcion`,
 (25, 3, 'Plan de alimentación de 21 días', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud. Incluye una combinación equilibrada de proteínas, carbohidratos y grasas saludables para mantenerte satisfecho y lleno de energía. ¡Empieza hoy mismo y transforma tu cuerpo en 21 días!', 'Este plan de alimentación de 21 días te ayudará a transformar tu cuerpo y mejorar tu salud.', '20230611190801_nutricion1.jpg', 9021, 2),
 (26, 3, 'Plan de alimentación para deportistas', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo. Incluye una combinación de alimentos ricos en proteínas, carbohidratos complejos y grasas saludables para optimizar el rendimiento físico y mental. ¡Maximiza tu potencial con este plan de alimentación para deportistas!', 'Este plan de alimentación está diseñado para atletas y personas activas que necesitan energía para rendir al máximo.', '20230611191124_nutricion2.jpg', 7210, 2),
 (27, 3, 'Plan de alimentación vegetariana', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas. Incluye una combinación equilibrada de proteínas vegetales, carbohidratos complejos y grasas saludables para mantener una nutrición adecuada. ¡Empieza hoy mismo y experimenta los beneficios de una dieta vegetariana!', 'Este plan de alimentación vegetariana está diseñado para personas que prefieren una dieta basada en plantas.', '20230611191206_nutricion3.jpg', 5999, 2),
-(28, 3, 'Yoga para principiantes', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria. Incluye una secuencia de posturas básicas y técnicas de respiración para mejorar la flexibilidad, el equilibrio y la relajación. ¡Empieza hoy mismo y descubre los beneficios del yoga!', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria.', '20230611193500_yoga1.jpg', 11345, 4),
+(28, 3, 'Yoga para principiantes', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria. Incluye una secuencia de posturas básicas y técnicas de respiración para mejorar la flexibilidad, el equilibrio y la relajación. ¡Empieza hoy mismo y descubre los beneficios del yoga!', 'Este plan de yoga es perfecto para principiantes que quieran empezar a practicar esta disciplina milenaria.', '20230724124224_split.jpg', 11345, 4),
 (29, 3, 'Yoga para el estrés', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad. Incluye una secuencia de posturas y técnicas de respiración para mejorar la relajación y la concentración. ¡Libera tu mente y tu cuerpo del estrés con este plan de yoga!', 'Este plan de yoga está diseñado para aliviar el estrés y la ansiedad.', '20230611193648_yoga2.jpg', 10678, 4),
-(30, 3, 'Meditación para la paz interior', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria. Incluye técnicas de meditación guiada y ejercicios de respiración para mejorar la concentración y la relajación. ¡Empieza hoy mismo y descubre el poder de la meditación!', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria.', '20230611193733_yoga3.jpg', 8199, 4);
+(30, 3, 'Meditación para la paz interior', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria. Incluye técnicas de meditación guiada y ejercicios de respiración para mejorar la concentración y la relajación. ¡Empieza hoy mismo y descubre el poder de la meditación!', 'Este plan de meditación está diseñado para ayudarte a encontrar la paz interior y la tranquilidad en tu vida diaria.', '20230611193733_yoga3.jpg', 8199, 4),
+(40, 1, 'Desafío Full Planch', 'seis semanas de desafíos emocionantes y ejercicios específicos, asegurándose de que entrenes de manera segura y eficiente para evitar lesiones. Al final del programa, te sorprenderás al descubrir cómo has desarrollado una fuerza increíble y una destreza asombrosa para realizar la Full Planch. ¡Es hora de superar tus límites y alcanzar nuevas alturas en tu entrenamiento de calistenia!', 'seis semanas de desafíos emocionantes y ejercicios específicos, asegurándose de que entrenes de manera segura y eficiente para evitar lesiones.', '20230724123620_maxresdefault.jpg', 6232, 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,8 @@ CREATE TABLE `producto_en_carrito` (
 
 INSERT INTO `producto_en_carrito` (`id_producto_en_carrito`, `cantidad`, `productos_fk`, `carrito_fk`) VALUES
 (6, 1, 27, 1),
-(7, 1, 19, 2);
+(8, 1, 20, 1),
+(9, 1, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -196,8 +198,10 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuarios`, `roles_fk`, `email`, `password`, `username`, `imagen`) VALUES
 (1, 1, 'abraham@prueba.com', '$2y$10$WM7jhu0PD9rH/ESErV4iHuqnSl.jmDkba9cE8uBq1zy9i5ywqxPZe', 'Bartoloni Abraham', NULL),
-(3, 2, 'entrenador@prueba.com', '$2y$10$16EzvWa4FypQIolUGyq.A.YHb6YPen8VSG/cVH1yWTFAsph2zFk9O', 'Lucas Beltran', '20230716232341_entrenador1.jpg'),
-(4, 3, 'usuario@prueba.com', '$2y$10$UKQdv0ovdPBgywArfaYjNOIdFI287QprfWHXrxvV07odGMjOLxIwi', NULL, NULL);
+(3, 2, 'entrenador@prueba.com', '$2y$10$16EzvWa4FypQIolUGyq.A.YHb6YPen8VSG/cVH1yWTFAsph2zFk9O', 'Lucas Beltran', '20230724124804_entrenador1.jpg'),
+(4, 3, 'usuario@prueba.com', '$2y$10$UKQdv0ovdPBgywArfaYjNOIdFI287QprfWHXrxvV07odGMjOLxIwi', NULL, NULL),
+(7, 2, 'entrenador2@prueba.com', '$2y$10$uF5/X6aHx4RXrS0KJ472lesn19Sd435j4MOFa8WXCLovWuWWxw0zW', NULL, NULL),
+(8, 3, 'usuario2@prueba.com', '$2y$10$OGpyvmDVGIzdsPTLDRTl3eCz2As59DhtlvoZuQkthdl.OCsccgMvS', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -299,13 +303,13 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_productos` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_productos` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_en_carrito`
 --
 ALTER TABLE `producto_en_carrito`
-  MODIFY `id_producto_en_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_producto_en_carrito` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `producto_en_pedido`
@@ -323,7 +327,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuarios` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
