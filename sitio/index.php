@@ -35,7 +35,7 @@ session_start();
      ],
      'crear-cuenta'=>[
       'title'=>'Registro'
-     ]
+     ],
     ];
 
   $vista = $_GET['s'] ?? 'home';
@@ -183,5 +183,6 @@ session_start();
   </footer>
     <script src="https://kit.fontawesome.com/d95904715c.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
+    
 </body>
 </html>
