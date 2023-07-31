@@ -10,3 +10,11 @@ sitio/vendor/ralouphie/getallheaders/
 sitio/vendor/intervention/image/
 >>>>>>> Stashed changes
 sitio/vendor/psr/http-message/
+sitio/vendor/doctrine/annotations/
+sitio/vendor/doctrine/common/
+sitio/vendor/doctrine/lexer/
+sitio/vendor/psr/cache/
+sitio/vendor/doctrine/deprecations/
+sitio/vendor/doctrine/event-manager/
+sitio/vendor/doctrine/persistence/
+sitio/vendor/mercadopago/dx-php/
