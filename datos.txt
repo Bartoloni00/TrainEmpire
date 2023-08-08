@@ -10,3 +10,9 @@ Docente: Santiago Gallino
 Caracter de entrega: 2do parcial
 email: abraham@prueba.com
 contraseña: 12345
+
+(todas las contraseñas son 12345)
+
+repositorio de github: https://github.com/Bartoloni00/TrainEmpire
+
+El checkout permite los pagos en modo incognito.
