@@ -463,10 +463,32 @@ label[for="maxp"], label[for="minp"]{
 .contenedor-btn-login p{
   padding: 1em;
 }
+.login-form{
+  max-width: 500px;
+}
 .registrate{
   font-weight: bolder;
   color: #990100;
   text-decoration: none;
+}
+.password-container{
+  display: flex;
+}
+#ojo{
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all .5s;
+}
+#ojo:hover{
+  background-color: var(--color-primario2);
+}
+#ojo i{
+  color: var(--color-secundario2);
 }
 /*----------------------------------------Carrito----------------------------------------------*/
 .carrito_container{

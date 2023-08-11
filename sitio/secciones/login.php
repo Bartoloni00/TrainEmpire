@@ -8,7 +8,7 @@ if(isset($_SESSION['errorAutenticacion'])) {
 ?>
 <section>
     <h1>Iniciar sesion</h1>
-    <form action="acciones/iniciar-sesion.php" method="post" class="row g-3">
+    <form action="acciones/iniciar-sesion.php" method="post" class="row g-3 login-form mx-auto">
         <div class="col-md-12">
             <label class="form-label" for="email">Correo electrónico:</label>
             <input 
@@ -22,7 +22,10 @@ if(isset($_SESSION['errorAutenticacion'])) {
         </div>
         <div class="col-md-12">
             <label class="form-label" for="password">Contraseña</label>
-            <input type="password" id="password" name="password" placeholder="Escriba aqui su contraseña" class="form-control" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Escriba aqui su contraseña" required>
+                <span id="ojo"><i class="fa-solid fa-eye"></i></span>
+            </div>
         </div>
         <div class="contenedor-btn-login">
             <button type="submit" class="btn-contacto">Ingresar</button>

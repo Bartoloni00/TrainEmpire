@@ -22,7 +22,7 @@ if (empty($password)) {
 if (empty($roles_fk)) {
     $errores['roles_fk'] = 'Debes asignarle un rol a tu usuario';
 }
-if ($roles_fk != 1 && $roles_fk != 2) {
+if ($roles_fk != 2 && $roles_fk != 3) {
     /*
     Realize el: value="<?=$rol->getId() - 1?>" y esta modificacion de la validacion porque pensaba
     que el iniciar con un value = 2, me generaba un error de validacion.
@@ -41,7 +41,6 @@ exit;
 }
 
 try {
-    $roles_fk = $roles_fk + 1;
     (new Usuario)->crear([
         'email'=>$email,
         'password' => password_hash($password, PASSWORD_DEFAULT),

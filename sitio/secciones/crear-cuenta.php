@@ -19,7 +19,7 @@ if(isset($_SESSION['oldData'])) {
 
 <section>
     <h1>Crear cuenta</h1>
-    <form action="acciones/registrar-usuario.php" method="post" class="row g-3">
+    <form action="acciones/registrar-usuario.php" method="post" class="row g-3 login-form mx-auto">
         <div class="col-md-12">
             <label class="form-label" for="email">Correo electrónico:</label>
             <input 
@@ -36,7 +36,10 @@ if(isset($_SESSION['oldData'])) {
         </div>
         <div class="col-md-12">
             <label class="form-label" for="password">Contraseña</label>
-            <input type="password" id="password" name="password" placeholder="Escriba aqui su contraseña" class="form-control" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Escriba aqui su contraseña" required>
+                <span id="ojo"><i class="fa-solid fa-eye"></i></span>
+            </div>
             <?php if(isset($errores['password'])):?>
                 <div class="msg-error" id="error-password"><?= $errores['password'];?></div>
             <?php endif;?>

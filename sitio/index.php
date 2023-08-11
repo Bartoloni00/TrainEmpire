@@ -183,6 +183,6 @@ session_start();
   </footer>
     <script src="https://kit.fontawesome.com/d95904715c.js" crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
-    
+    <script src="js/codigo.js"></script>
 </body>
 </html>
