@@ -75,7 +75,7 @@ class Carrito {
      * @param int $id_producto_en_carrito
      */
     public function eliminarDelCarrito(int $id_producto_en_carrito){
-        require_once __DIR__ . '/../bd/BD.php';// TODO: revisar porque tengo que hacer esta importacion
+        //require_once __DIR__ . '/../bd/BD.php';// TODO: revisar porque tengo que hacer esta importacion
         /* 
             No entiendo porque al ejecutar este metodo parece haber un problema de scope y no encuentra la clase BD
         */
